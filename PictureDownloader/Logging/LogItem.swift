@@ -7,6 +7,7 @@ import Foundation
 public enum LogItemPriority {
     case Information
     case Exclamation
+    case Warning
 }
 
 public class LogItem : Identifiable {

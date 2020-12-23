@@ -85,7 +85,7 @@ class WebsiteRepository
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "hentai-cosplay.com";
+        item.identification = "hentai-cosplays.com";
         item.startStrings.append("<div class=\"icon-overlay\">")
         item.startStrings.append("<img src=")
         item.endStrings.append(".jpg")
@@ -93,13 +93,13 @@ class WebsiteRepository
         item.removeCharactersFromStart = 10;
         item.addCharactersAtEnd = 4;
         
-       item.followupPageIdentifier = "\">kế tiếp&gt;</a>"
+       item.followupPageIdentifier = "\">next&gt;</a>"
         item.followUpClosure =
             { (text:String) -> String in
                 var substring = ""
                 
                 // Bis zum Ende abschneiden
-                if let range:Range<String.Index> = text.range(of: "\">kế tiếp&gt;</a>")
+                if let range:Range<String.Index> = text.range(of: "\">next&gt;</a>")
                 {
                     substring = String(text[..<range.lowerBound])
                     
@@ -108,7 +108,7 @@ class WebsiteRepository
                     {
                         let stringRange = substring.range(of: substring)!
                         substring = String(substring[range.upperBound..<stringRange.upperBound])
-                        substring = "https://vi.hentai-cosplay.com" + substring
+                        substring = "https://hentai-cosplays.com" + substring
                     }
                 }
                 return substring

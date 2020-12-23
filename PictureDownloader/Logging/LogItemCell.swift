@@ -27,15 +27,10 @@ struct LogItemCell: View {
         switch logItem.priority {
         case .Information: return AnyView( Image(systemName: "info.circle").font(.title2) .foregroundColor(.green) )
         case .Exclamation: return AnyView( Image(systemName: "exclamationmark.triangle").font(.title2) .foregroundColor(.red))
+        case .Warning: return AnyView( Image(systemName: "questionmark.diamond").font(.title2) .foregroundColor(.orange))
         }
     }
-    
-    
-    
 }
-
-
-
 
 
 struct LogItemCell_Previews: PreviewProvider {

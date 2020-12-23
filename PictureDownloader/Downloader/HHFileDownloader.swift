@@ -19,7 +19,9 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
     
     lazy var downloadsSession: URLSession = {
         let configuration = URLSessionConfiguration.default
-        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        configuration.httpAdditionalHeaders = ["Accept-Language": "en-US", "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.2 Safari/605.1.15" ];
+        var session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        return session
     }()
     
     // MARK: HTML Get Download

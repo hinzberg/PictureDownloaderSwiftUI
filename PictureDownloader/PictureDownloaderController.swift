@@ -58,7 +58,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
-        // currentPasteboardUrl = "https://octokuro.com/gallery/blueberry-haze"
+        // currentPasteboardUrl = "https://hentai-cosplays.com/image/disharmonica-2b-winter/"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""

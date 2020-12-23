@@ -57,12 +57,11 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
         // Html source of url was loaded
         if htmlSource.isEmpty
         {
-            /*
-             let alert = NSAlert()
-             alert.messageText = "No HTML found"
-             alert.informativeText = "No valid HTML source could be found on loaded URL"
-             alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
-             */
+            if self.showNotifications
+            {
+                HHNotificationCenter.shared.addSimpleAlarmNotification(title: self.galleryTitle, body: "No valid HTML source could be found on loaded URL")
+            }
+            LogItemRepository.shared.addItem(item: LogItem(message: "No valid HTML source could be found on loaded URL", priority: .Exclamation))
         }
         else
         {
@@ -78,7 +77,6 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
                 // No more pages. We are done!
                 if self.downloadItemsArray.count > 0
                 {
-                   
                     if self.playSoundAtAdd {
                         NSSound.beep()
                     }
@@ -109,18 +107,13 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
         
         if items.count == 0
         {
-           /*
-             let alert = NSAlert()
-             alert.messageText = "Missing Information"
-             alert.informativeText = "No matching Repository Items found for Page"
-             alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
-          */
+            LogItemRepository.shared.addItem(item: LogItem(message:"No matching Repository Items found for Page", priority: .Warning))
         }
         else
         {
-            // If there are more than one match we take the first
+            // If there ist more than one match we just take the first match
             let item = items.first!
-            // print("Matching Repository found \(item.identification)")
+            LogItemRepository.shared.addItem(item: LogItem(message:"Matching Repository found \(item.identification)"))
             
             var imageDownloadLinkFound = false;
             let htmlParser = HtmlParser(item: item)
@@ -144,16 +137,17 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
             
             if item.followUpClosure != nil
             {
+                
                 linkToFollowupPage = htmlParser.getLinkToFollowupPage(sourceParam: htmlSource)
                 if linkToFollowupPage != ""
                 {
-                    print(linkToFollowupPage)
+                    LogItemRepository.shared.addItem(item: LogItem(message:"Next page: \(linkToFollowupPage)" ))
                 }
                 else
                 {
                     if let delegate = self.delegate
                     {
-                        delegate.galleryAnalyserStatusMessage(message: "Keine weiteren Seiten")
+                        delegate.galleryAnalyserStatusMessage(message: "No more pages")
                     }
                 }
             }
