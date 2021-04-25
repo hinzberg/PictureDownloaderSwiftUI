@@ -4,22 +4,27 @@
 
 import SwiftUI
 
+
 struct DownloadQueView: View {
     
-    @ObservedObject var downloadItemRepository = HHDownloadItemRepository.shared;
+    @EnvironmentObject var controller : PictureDownloaderController
+    @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
     
     var body: some View {
         VStack {
-            List {
-                ForEach (self.downloadItemRepository.items, id: \.id) { item in
-                    HHDownloadItemRowView(item: item)
-          
+            VStack {
+                List {
+                    ForEach (downloadItemRepository.items, id: \.id) { item in
+                        HHDownloadItemRowView(item: item)
+                    }
                 }
-            }
-            VStack{
-                Text("\(self.downloadItemRepository.itemsCountText)")
-            }
+                VStack{
+                    Text("\(self.downloadItemRepository.itemsCountText)")
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        Text("\(controller.activeItemName)")
+            .padding(EdgeInsets(top: 2, leading: 2, bottom: 10, trailing: 2))
     }
 }
 

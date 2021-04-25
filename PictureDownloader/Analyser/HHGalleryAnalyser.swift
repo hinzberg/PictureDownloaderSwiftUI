@@ -6,9 +6,10 @@
 import SwiftUI
 import UserNotifications
 
-class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
+class HHGalleryAnalyser: NSObject
 {
-    private var fileDownloader = HHFileDownloader()
+    //private var fileDownloader = HHFileDownloader()
+    private var htmlDownloader = HtmlDownloader();
     private var websiteRepo = WebsiteRepository()
     private var downloadItemsArray = [HHDownloadItem]()
     private var galleryTitle = ""
@@ -20,7 +21,6 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
     override init()
     {
         super.init()
-        fileDownloader.delegate = self
     }
     
     func analyseGallery(urlString:String)
@@ -38,10 +38,19 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
             delegate.galleryAnalyserStatusMessage(message: urlString)
         }
         
-        let validation = self.fileDownloader.validate(string: urlString)
+        let validation = self.htmlDownloader.validate(string: urlString)
         if  validation.isValid == true
         {
-            self.fileDownloader.downloadWebpageHtmlAsync(url: validation.url!)
+            self.htmlDownloader.downloadAsync(url: validation.url!) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
+                case.success(let html):
+                    self.downloadHtmlCompleted(htmlSource: html)
+                    break
+                }
+            }
         }
         else
         {
@@ -52,7 +61,7 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
         }
     }
     
-    internal func downloadWebpageHtmlAsyncCompleted(htmlSource: String)
+    internal func downloadHtmlCompleted(htmlSource: String)
     {
         // Html source of url was loaded
         if htmlSource.isEmpty
@@ -80,7 +89,7 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
                     if self.playSoundAtAdd {
                         NSSound.beep()
                     }
-
+                    
                     // Show Notification
                     if self.showNotifications
                     {
@@ -137,7 +146,6 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
             
             if item.followUpClosure != nil
             {
-                
                 linkToFollowupPage = htmlParser.getLinkToFollowupPage(sourceParam: htmlSource)
                 if linkToFollowupPage != ""
                 {
@@ -154,12 +162,7 @@ class HHGalleryAnalyser: NSObject, HHFileDownloaderDelegateProtocol
             
             if imageDownloadLinkFound == false
             {
-                /*
-                 let alert = NSAlert()
-                 alert.messageText = "No pictures found!"
-                 alert.informativeText = "No picture links found on this page."
-                 alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
-                 */
+                LogItemRepository.shared.addItem(item: LogItem(message:"No picture links found on this page.", priority: .Warning  ))
             }
         }
         

@@ -23,6 +23,4 @@ public class HHDownloadItem: NSObject, Identifiable
         item.imageUrl = "https://c.xme.net/0c406169.jpg"
         return item
     }
-    
-    
 }

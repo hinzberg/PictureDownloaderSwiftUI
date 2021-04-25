@@ -7,7 +7,6 @@ import Foundation
 
 protocol  HHFileDownloaderDelegateProtocol
 {
-    func downloadWebpageHtmlAsyncCompleted(htmlSource:String)
     func downloadFileAsyncCompleted(fileLocation:String)
     func downloadItemAsyncCompleted(item:HHDownloadItem)
     func downloadError(message:String)

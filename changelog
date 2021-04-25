@@ -1,3 +1,6 @@
+2021-03-01
+- HtmlDownloader with escaping closure and ResultType without Delegate
+
 2020-12-23
 New LogItemPriority enum value: Warning
 Accept-Language and User-Agent for URLSessionConfiguration in class HHFileDownloader

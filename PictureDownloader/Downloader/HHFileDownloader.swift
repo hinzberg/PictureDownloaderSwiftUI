@@ -9,10 +9,9 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
 {
     var delegate:HHFileDownloaderDelegateProtocol? // Delegate for Completion Handler
     
-    private let defaultSession = URLSession(configuration: .default)
     private var dataTask: URLSessionDataTask? // For HTTP Get, HTML Source
     private var downloadTask:URLSessionDownloadTask? // For file download
-    
+
     var downloadFolder = ""
     private var downloadFilename = "";
     private var downloadItem:HHDownloadItem?
@@ -23,47 +22,12 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
         var session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         return session
     }()
-    
-    // MARK: HTML Get Download
-    
-    public func downloadWebpageHtmlAsync(url:URL)
-    {
-       dataTask?.cancel()
-        
-        dataTask = defaultSession.dataTask(with: url)
-        {
-            data, response, error in
-            
-            if let error = error
-            {
-                print(error.localizedDescription)
-            }
-            
-            if data != nil
-            {
-                let buffer = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-               // print(buffer ?? "No Buffer")
-                
-                if self.delegate != nil && buffer != nil
-                {
-                    DispatchQueue.main.async()
-                        {
-                            self.delegate?.downloadWebpageHtmlAsyncCompleted(htmlSource: buffer! as String)
-                            ()
-                            // Because delegate is optional type and can be nil, and every function or method
-                            // in Swift must return value, for example Void!, (), you just need to add tuple () at the end of dispatch_async
-                    }
-                }
-            }
-        }
-        dataTask?.resume()
-    }
-    
+
     // MARK: File Download
     
     public func downloadFileAsync(url:URL , downloadFolder:String , downloadFilename:String)
     {
-       self.downloadFolder = downloadFolder
+        self.downloadFolder = downloadFolder
         self.downloadFilename = downloadFilename
         
         self.dataTask?.cancel()
@@ -110,7 +74,7 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
             
             DispatchQueue.main.async()
             {
-                    self.delegate?.downloadFileAsyncCompleted(fileLocation: fileLocation)
+                self.delegate?.downloadFileAsyncCompleted(fileLocation: fileLocation)
             }
         }
         else
@@ -124,12 +88,12 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
             }
             
             DispatchQueue.main.async()
-                {
-                    self.delegate?.downloadItemAsyncCompleted(item: self.downloadItem!)
+            {
+                self.delegate?.downloadItemAsyncCompleted(item: self.downloadItem!)
             }
         }
     }
-        
+    
     func copyItemAtPath(srcPath: String?, toPath dstPath: String?) -> Bool
     {
         var success = true
@@ -139,7 +103,7 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
             let fileManager = FileManager.default
             do
             {
-               try fileManager.copyItem(atPath: sourcePath, toPath: destinationPath)
+                try fileManager.copyItem(atPath: sourcePath, toPath: destinationPath)
             }
             catch let error as NSError
             {
@@ -155,20 +119,5 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
         return success
     }
     
-    func validate(string:String?) -> (isValid:Bool, url:URL?)
-    {
-        guard let urlString = string else {return (false, nil)}
-        guard let url = URL(string: urlString) else {return (false, nil)}
-        return (true, url)
-        /*
-        let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[regEx])
-        
-        if predicate.evaluate(with: string) == true
-        {
-            return (true, url)
-        }
-        return (false, nil)
-        */
-    }
+
 }
