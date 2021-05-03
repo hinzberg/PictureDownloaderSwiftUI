@@ -41,7 +41,7 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
         self.downloadItem = item
         self.dataTask?.cancel()
         
-        let url = NSURL(string: self.downloadItem!.imageUrl)
+        let url = NSURL(string: self.downloadItem!.imageSourceUrl)
         if url != nil
         {
             downloadTask = downloadsSession.downloadTask(with: url! as URL)
@@ -49,8 +49,8 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
         }
         else
         {
-            let urlText = self.downloadItem?.imageUrl ?? "Item nil"
-            self.delegate?.downloadError(message: urlText)
+            let urlText = self.downloadItem?.imageSourceUrl ?? "Item nil"
+            self.delegate?.downloadError(item: item, message: urlText)
         }
     }
     
@@ -80,11 +80,12 @@ class HHFileDownloader: NSObject, URLSessionDownloadDelegate
         else
         {
             // Download via DownloadItem
-            let urlText =  self.downloadFolder + "/" + self.downloadItem!.imageName
-            self.downloadItem?.saveImagePath = urlText
-            let success =  self.copyItemAtPath(srcPath: location.path, toPath: urlText)
+            let targetUrlText = "\(self.downloadFolder)/\(self.downloadItem!.imageTargetName)\(self.downloadItem!.imageTagetExtention)"
+            self.downloadItem?.saveImagePath = targetUrlText
+            
+            let success =  self.copyItemAtPath(srcPath: location.path, toPath: targetUrlText)
             if success == true {
-                LogItemRepository.shared.addItem(item: LogItem(message: "Image saved \(urlText)"))
+                LogItemRepository.shared.addItem(item: LogItem(message: "Image saved \(targetUrlText)"))
             }
             
             DispatchQueue.main.async()

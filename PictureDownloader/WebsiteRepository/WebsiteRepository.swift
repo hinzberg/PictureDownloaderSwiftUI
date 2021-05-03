@@ -24,6 +24,18 @@ class WebsiteRepository
         websites.append(item)
         
         item = WebsiteRepositoryItem()
+        item.identification = "https://babesource.com/galleries/";
+        item.startStrings.append("href=\"https://media.babesource.com/galleries/")
+        item.endStrings.append(".jpg")
+        item.filetypeString = ".jpg"
+        item.removeCharactersFromStart = 6
+        item.addCharactersAtEnd = 4
+        websites.append(item)
+        
+        
+        
+        /*
+        item = WebsiteRepositoryItem()
         item.identification = "https://www.elitebabes.com";
         item.startStrings.append("<a href=\"https://k5x5n5g8.ssl.hwcdn.net/content")
         item.endStrings.append(".jpg")
@@ -32,6 +44,7 @@ class WebsiteRepository
         item.addCharactersAtEnd = 4
         //item.imageUrlAdditionalPrefix = "https://octokuro.com"
         websites.append(item)
+        */
         
         item = WebsiteRepositoryItem()
         item.identification = "https://octokuro.com/gallery/";
@@ -42,12 +55,7 @@ class WebsiteRepository
         item.addCharactersAtEnd = 4
         item.imageUrlAdditionalPrefix = "https://octokuro.com"
         websites.append(item)
-        
-        /*
-        <div href="/images/previews/Blueberry_Haze/full_blueberryhaze_00_CFB2EFDB32.jpg" itemprop="contentUrl" data-size="1333x2000"><img src="/images/previews/Blueberry_Haze/thumb_blueberryhaze_00_CFB2EFDB32.jpg" itemprop="thumbnailUrl"></div>
- */
- 
- 
+
         item = WebsiteRepositoryItem()
         item.identification = "http://www.centerfoldlist.com/feed/";
         item.startStrings.append("href=\'http://www.centerfoldlist.com/galleries")

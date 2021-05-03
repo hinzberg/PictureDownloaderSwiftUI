@@ -2,7 +2,7 @@
 //  PictureDownloader3
 //  Created by Holger Hinzberg on 05.07.20.
 
-import Foundation
+import SwiftUI
 
 public class HHDownloadItemRepository: ObservableObject {
 
@@ -11,7 +11,9 @@ public class HHDownloadItemRepository: ObservableObject {
     private init() {
         updateItemsCountText()
     }
-    
+
+    private var sequentialNumber : Int = 1
+   @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
    @Published var items = [HHDownloadItem]()
    @Published var itemsCountText = ""
 
@@ -23,14 +25,23 @@ public class HHDownloadItemRepository: ObservableObject {
     
     func addItem(item : HHDownloadItem )
     {
-      items.append(item)
+        if self.appendSequentialNumber {
+            item.imageTargetName = "\(item.imageTargetName) (\(self.sequentialNumber))"
+            sequentialNumber = sequentialNumber + 1
+        }
+        else {
+            self.createUnqiueFilename(checkItem: item)
+        }
+        
+        items.append(item)
         self.updateItemsCountText()
    }
     
     func addItems(itemsArray : [HHDownloadItem] )
     {
-        items.append(contentsOf: itemsArray)
-        self.updateItemsCountText()
+        for item in itemsArray {
+            self.addItem(item: item)
+        }
    }
     
     func removeItem(item : HHDownloadItem )
@@ -41,6 +52,18 @@ public class HHDownloadItemRepository: ObservableObject {
         self.updateItemsCountText()
    }
     
+    private func createUnqiueFilename(checkItem : HHDownloadItem)
+    {
+        for item in self.items {
+            // Same name but different sourceUrl
+            if item.imageTargetName == checkItem.imageTargetName && item.imageSourceUrl != checkItem.imageSourceUrl
+            {
+                checkItem.imageTargetName = checkItem.imageTargetName + "_1"
+                self.createUnqiueFilename(checkItem: checkItem)
+            }
+        }
+    }
+
     private func updateItemsCountText() {
         if self.items.count == 0 {
             self.itemsCountText = "Keine Bilder in der Warteschlange";

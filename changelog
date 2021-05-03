@@ -1,3 +1,9 @@
+2021-05-03
+- Identification added : babesource.com
+- removeInvalidFilenameCharacters
+- New Settings : Append sequential number to filename
+- Fix for application will stop if an Url can't be created
+
 2021-03-01
 - HtmlDownloader with escaping closure and ResultType without Delegate
 

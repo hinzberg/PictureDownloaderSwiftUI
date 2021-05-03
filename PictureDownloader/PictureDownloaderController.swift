@@ -55,7 +55,8 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         var currentPasteboardUrl = ""
        
         // For Debug
-         currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
+        // currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html";
+         // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
@@ -66,7 +67,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
             currentPasteboardUrl = self.urlGetter.getPastboardUrl()
         }
         
-        // Url not empty an different the the last pasteboard entry?
+        // Url not empty and different than the last pasteboard entry?
         if !currentPasteboardUrl.isEmpty && currentPasteboardUrl != lastPasteboardUrl
         {
             self.lastPasteboardUrl = currentPasteboardUrl
@@ -76,7 +77,8 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
     
     // MARK:- GalleryAnalyserDelegate-Methods
     
-    func galleryAnalysingCompleted(downloadItemsArray: [HHDownloadItem]) {
+    func galleryAnalysingCompleted(downloadItemsArray: [HHDownloadItem])
+    {
         self.downloadItemRepository.addItems(itemsArray: downloadItemsArray)
         self.showBadgeCount()
     }
@@ -108,9 +110,9 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         let item = self.downloadItemRepository.items.first
         if let downloadItem = item
         {
-            LogItemRepository.shared.addItem(item: LogItem(message: "Loading \(downloadItem.imageUrl)"))
+            LogItemRepository.shared.addItem(item: LogItem(message: "Loading \(downloadItem.imageSourceUrl)"))
             // Statustext
-            self.activeItemName = downloadItem.imageName
+            self.activeItemName = "\(downloadItem.imageTargetName)\(downloadItem.imageTagetExtention)"
             // Load item
             self.fileDownloader.downloadItemAsync(item: downloadItem)
         }
@@ -146,7 +148,8 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         }
     }
     
-    func downloadError(message: String) {
+    func downloadError(item:HHDownloadItem, message:String) {
         LogItemRepository.shared.addItem(item: LogItem(message: message, priority: .Exclamation))
+        self.downloadItemAsyncCompleted(item: item)
     }
 }

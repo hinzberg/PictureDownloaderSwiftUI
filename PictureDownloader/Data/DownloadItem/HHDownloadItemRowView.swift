@@ -1,9 +1,6 @@
-//
 //  HHDownloadItemRowView.swift
 //  PictureDownloader3
-//
 //  Created by Holger Hinzberg on 05.07.20.
-//
 
 import SwiftUI
 
@@ -13,9 +10,10 @@ struct HHDownloadItemRowView: View {
     
     var body: some View {
         VStack{
-            Text(item.imageName).font(.headline).foregroundColor(Color.primary)
+            Text("\(item.imageTargetName)\(item.imageTagetExtention)").font(.headline).foregroundColor(Color.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text(item.imageUrl).font(.subheadline).foregroundColor(Color.secondary)
+            
+            Text(item.imageSourceUrl).font(.subheadline).foregroundColor(Color.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }.padding(5)
     }

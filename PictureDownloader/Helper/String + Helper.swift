@@ -129,4 +129,11 @@ extension String
         return dummy
     }
     
+    func removeInvalidFilenameCharacters() -> String
+    {
+        var dummy = self
+        dummy = dummy.replacingOccurrences(of: "/", with: " ")
+        dummy = dummy.replacingOccurrences(of: ":", with: " ")
+        return dummy
+    }
 }

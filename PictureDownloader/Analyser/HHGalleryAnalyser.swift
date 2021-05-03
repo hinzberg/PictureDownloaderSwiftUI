@@ -8,11 +8,9 @@ import UserNotifications
 
 class HHGalleryAnalyser: NSObject
 {
-    //private var fileDownloader = HHFileDownloader()
     private var htmlDownloader = HtmlDownloader();
     private var websiteRepo = WebsiteRepository()
     private var downloadItemsArray = [HHDownloadItem]()
-    private var galleryTitle = ""
     var delegate:HHGalleryAnalyserDelegateProtocol? // Delegate for Completion Handler
     
     @AppStorage("playSoundAtAdd") var playSoundAtAdd = false
@@ -25,7 +23,6 @@ class HHGalleryAnalyser: NSObject
     
     func analyseGallery(urlString:String)
     {
-        self.galleryTitle = ""
         self.downloadItemsArray.removeAll()
         self.validateAndPrepareDownload(urlString: urlString)
     }
@@ -39,6 +36,7 @@ class HHGalleryAnalyser: NSObject
         }
         
         let validation = self.htmlDownloader.validate(string: urlString)
+        
         if  validation.isValid == true
         {
             self.htmlDownloader.downloadAsync(url: validation.url!) { result in
@@ -58,6 +56,8 @@ class HHGalleryAnalyser: NSObject
             alert.messageText = "Invalid Data"
             alert.informativeText = "\(urlString) \ncould not be validated."
             alert.runModal()
+
+            LogItemRepository.shared.addItem(item: LogItem(message: "\(urlString) could not be validated.", priority: .Exclamation))
         }
     }
     
@@ -68,7 +68,7 @@ class HHGalleryAnalyser: NSObject
         {
             if self.showNotifications
             {
-                HHNotificationCenter.shared.addSimpleAlarmNotification(title: self.galleryTitle, body: "No valid HTML source could be found on loaded URL")
+                HHNotificationCenter.shared.addSimpleAlarmNotification(title: "Error", body: "No valid HTML source could be found on loaded URL")
             }
             LogItemRepository.shared.addItem(item: LogItem(message: "No valid HTML source could be found on loaded URL", priority: .Exclamation))
         }
@@ -93,7 +93,7 @@ class HHGalleryAnalyser: NSObject
                     // Show Notification
                     if self.showNotifications
                     {
-                        HHNotificationCenter.shared.addSimpleAlarmNotification(title: self.galleryTitle, body: "\(self.downloadItemsArray.count ) new downloads prepared")
+                        HHNotificationCenter.shared.addSimpleAlarmNotification(title: "Images found!", body: "\(self.downloadItemsArray.count ) new downloads prepared")
                     }
                     
                     LogItemRepository.shared.addItem(item: LogItem(message: "\(self.downloadItemsArray.count ) new downloads prepared"))
@@ -127,20 +127,15 @@ class HHGalleryAnalyser: NSObject
             var imageDownloadLinkFound = false;
             let htmlParser = HtmlParser(item: item)
             let imageLinkArray = htmlParser.getImageArray(sourceParam: htmlSource)
-            var pageTitle = htmlParser.cutStringBetween(sourceParam: htmlSource, startString: "<title>", endString: "</title>")
-            pageTitle = pageTitle.fixEncoding()
+            var htmlPageTitle = htmlParser.cutStringBetween(sourceParam: htmlSource, startString: "<title>", endString: "</title>")
+            htmlPageTitle = htmlPageTitle.fixEncoding()
+            htmlPageTitle = htmlPageTitle.removeInvalidFilenameCharacters()
             
-            LogItemRepository.shared.addItem(item: LogItem(message:"Page title detected: \(pageTitle)" ))
-            
-            // Title of the first page will be the title for the DownloadItems
-            if self.galleryTitle == ""
-            {
-                self.galleryTitle = pageTitle
-            }
+            LogItemRepository.shared.addItem(item: LogItem(message:"Page title detected: \(htmlPageTitle)" ))
             
             if imageLinkArray.count > 0
             {
-                createDownloadItems(pageTitle: self.galleryTitle, imageLinkArray: imageLinkArray)
+                createDownloadItems(pageTitle: htmlPageTitle, imageLinkArray: imageLinkArray)
                 imageDownloadLinkFound = true
             }
             
@@ -177,8 +172,9 @@ class HHGalleryAnalyser: NSObject
             let number = self.downloadItemsArray.count + 1;
             let downloadItem = HHDownloadItem()
             downloadItem.isActiveForDownload = true
-            downloadItem.imageUrl = imageLink
-            downloadItem.imageName = "\(pageTitle) \(number).jpg"
+            downloadItem.imageSourceUrl = imageLink
+            downloadItem.imageTargetName = "\(pageTitle) \(number)"
+            downloadItem.imageTagetExtention = ".jpg"
             downloadItemsArray.append(downloadItem)
         }
     }

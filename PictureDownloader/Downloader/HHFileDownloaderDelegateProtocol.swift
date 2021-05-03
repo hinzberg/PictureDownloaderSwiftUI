@@ -9,5 +9,5 @@ protocol  HHFileDownloaderDelegateProtocol
 {
     func downloadFileAsyncCompleted(fileLocation:String)
     func downloadItemAsyncCompleted(item:HHDownloadItem)
-    func downloadError(message:String)
+    func downloadError(item:HHDownloadItem, message:String)
 }

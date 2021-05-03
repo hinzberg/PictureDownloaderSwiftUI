@@ -9,6 +9,7 @@ struct SettingsView: View {
     @AppStorage("playSoundAtAdd") var playSoundAtAdd = false
     @AppStorage("playSoundAtFinish") var playSoundAtFinish = false
     @AppStorage("showNotifications") var showNotifications = false
+    @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
     @AppStorage("imagepath") var imagePathString = ""
     
     var body: some View {
@@ -37,6 +38,11 @@ struct SettingsView: View {
             }
             HStack{
                 Toggle("Show notifications", isOn: $showNotifications)
+                Spacer()
+            }
+            
+            HStack{
+                Toggle("Append sequential number to filename", isOn: $appendSequentialNumber)
                 Spacer()
             }
             

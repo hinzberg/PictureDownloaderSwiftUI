@@ -16,6 +16,7 @@
 		3F40CAD0258017AA009834FB /* LogItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40CACF258017AA009834FB /* LogItemRepository.swift */; };
 		3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40CAD2258018BF009834FB /* LogItemCell.swift */; };
 		3F40CAD625801A24009834FB /* LogItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40CAD525801A24009834FB /* LogItemListView.swift */; };
+		3F692EF42640552D00330900 /* Programflow in Resources */ = {isa = PBXBuildFile; fileRef = 3F692EF32640552D00330900 /* Programflow */; };
 		3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4926068F92000AD9A8 /* SidebarView.swift */; };
 		3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4E26069158000AD9A8 /* DownloadView.swift */; };
 		3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */; };
@@ -51,6 +52,7 @@
 		3F40CACF258017AA009834FB /* LogItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemRepository.swift; sourceTree = "<group>"; };
 		3F40CAD2258018BF009834FB /* LogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemCell.swift; sourceTree = "<group>"; };
 		3F40CAD525801A24009834FB /* LogItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemListView.swift; sourceTree = "<group>"; };
+		3F692EF32640552D00330900 /* Programflow */ = {isa = PBXFileReference; lastKnownFileType = text; path = Programflow; sourceTree = "<group>"; };
 		3F696F4926068F92000AD9A8 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		3F696F4E26069158000AD9A8 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSound + Extension.swift"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		3F7E036025641F59008D948C = {
 			isa = PBXGroup;
 			children = (
+				3F692EF32640552D00330900 /* Programflow */,
 				3FEE732925928F4C00980495 /* changelog */,
 				3F7E036B25641F59008D948C /* PictureDownloader */,
 				3F7E036A25641F59008D948C /* Products */,
@@ -279,6 +282,7 @@
 				3FEE732A25928F4C00980495 /* changelog in Resources */,
 				3F7E037425641F59008D948C /* Preview Assets.xcassets in Resources */,
 				3F7E037125641F59008D948C /* Assets.xcassets in Resources */,
+				3F692EF42640552D00330900 /* Programflow in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,12 @@
+timerTick
+Analyse PasteboardURL
+    
+[HHGalleryAnalyser]
+analyseGallery
+validateAndPrepareDownload
+       [HtmlDownloader] downloadAsync
+downloadHtmlCompleted
+
+
+    
+        
