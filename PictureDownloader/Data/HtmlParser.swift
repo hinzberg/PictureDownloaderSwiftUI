@@ -23,7 +23,11 @@ public class HtmlParser: NSObject
         
         while imageLink != nil
         {
-            imageArray.append(imageLink!)
+            // do not add duplicate links
+            if imageArray.contains(imageLink!) == false {
+                imageArray.append(imageLink!)
+            }
+            
             // den Bekannten ImageLink aus dem Code entfernen
             source = self.getSourceAfterImageLink(sourceParam: source, imageLink: imageLink!)
             imageLink = self.getNextImageLink(sourceParam: source)

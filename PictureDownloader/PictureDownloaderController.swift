@@ -60,6 +60,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
+        // currentPasteboardUrl = "https://www.elitebabes.com/huge-round-tits-with-large-pink-areolas-and-sexy-slim-waist-are-the-best-sexual-assets-of-sexy-maria/"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""
@@ -130,16 +131,16 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
     
     func downloadItemAsyncCompleted(item: HHDownloadItem) {
         
-        downloadItemRepository.removeItem(item: item)
+        self.downloadItemRepository.removeItem(item: item)
+        self.showBadgeCount()
         
         if downloadItemRepository.items.count > 0 {
             self.downloadNextItem()
         } else {
-            
             if self.playSoundAtFinish {
                 NSSound.beep()
             }
-            
+       
             LogItemRepository.shared.addItem(item: LogItem(message: "Downloads completed"))
             if self.showNotifications {
                 HHNotificationCenter.shared.addSimpleAlarmNotification(title: "Done!", body: "Downloads completed")

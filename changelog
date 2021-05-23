@@ -1,5 +1,19 @@
+- Current Sources
+babesource.com
+babehub.com
+pmatehunter.com
+hqbabes.com
+hqsluts.com
+hentai-cosplays.com
+
+
+2021-05-23
+- WebsiteRepositoryItem added : elitebabes.com
+- Check for duplicate links in page in HtmlParser
+- Badge Count update after each download finished
+
 2021-05-03
-- Identification added : babesource.com
+- WebsiteRepositoryItem added : babesource.com
 - removeInvalidFilenameCharacters
 - New Settings : Append sequential number to filename
 - Fix for application will stop if an Url can't be created
@@ -14,3 +28,6 @@ Parsing fixed for website : hentai-cosplays.com
 
 2020-12-22
 New Setting : Show Notifications
+
+
+
