@@ -56,7 +56,7 @@ class HHGalleryAnalyser: NSObject
             alert.messageText = "Invalid Data"
             alert.informativeText = "\(urlString) \ncould not be validated."
             alert.runModal()
-
+            
             LogItemRepository.shared.addItem(item: LogItem(message: "\(urlString) could not be validated.", priority: .Exclamation))
         }
     }
@@ -74,7 +74,6 @@ class HHGalleryAnalyser: NSObject
         }
         else
         {
-            //self.htmlSource = htmlSource
             let linkToFollowupPage = self.analyseHtmlSource(htmlSource: htmlSource)
             // Any more pages?
             if linkToFollowupPage != ""
@@ -112,53 +111,59 @@ class HHGalleryAnalyser: NSObject
     private func analyseHtmlSource(htmlSource:String) -> (String)
     {
         var linkToFollowupPage = ""
-        let items:[WebsiteRepositoryItem] = self.websiteRepo.getItemForIdentification(ident: htmlSource)
+        let item:WebsiteRepositoryItem? = self.websiteRepo.identifyMatchingRepositoryItem(htmlSource: htmlSource)
         
-        if items.count == 0
-        {
+        // Did I get matching WebsiteRepositoryItem?
+        guard let repoItem = item else {
             LogItemRepository.shared.addItem(item: LogItem(message:"No matching Repository Items found for Page", priority: .Warning))
+            return ""
         }
-        else
+        LogItemRepository.shared.addItem(item: LogItem(message:"Matching Repository found \(repoItem.websiteIdentification)"))
+        
+    
+        let parse:WebsiteParseInformation? = self.websiteRepo.identifyMatchingParseInformation(htmlSource: htmlSource, item: repoItem)
+        // Did I get matching ParseInformation?
+        guard let parseInfo = parse else {
+            LogItemRepository.shared.addItem(item: LogItem(message:"No matching ParseInformation Items found for Page", priority: .Warning))
+            return ""
+        }
+        
+        LogItemRepository.shared.addItem(item: LogItem(message:"Matching ParseInformation found \(parseInfo.parseIdentification)"))
+        
+        var imageDownloadLinkFound = false;
+        let htmlParser = HtmlParser(parseInformation: parseInfo)
+        let imageLinkArray = htmlParser.getImageArray(sourceParam: htmlSource)
+        var htmlPageTitle = htmlParser.cutStringBetween(sourceParam: htmlSource, startString: "<title>", endString: "</title>")
+        htmlPageTitle = htmlPageTitle.fixEncoding()
+        htmlPageTitle = htmlPageTitle.removeInvalidFilenameCharacters()
+        
+        LogItemRepository.shared.addItem(item: LogItem(message:"Page title detected: \(htmlPageTitle)" ))
+        
+        if imageLinkArray.count > 0
         {
-            // If there ist more than one match we just take the first match
-            let item = items.first!
-            LogItemRepository.shared.addItem(item: LogItem(message:"Matching Repository found \(item.identification)"))
-            
-            var imageDownloadLinkFound = false;
-            let htmlParser = HtmlParser(item: item)
-            let imageLinkArray = htmlParser.getImageArray(sourceParam: htmlSource)
-            var htmlPageTitle = htmlParser.cutStringBetween(sourceParam: htmlSource, startString: "<title>", endString: "</title>")
-            htmlPageTitle = htmlPageTitle.fixEncoding()
-            htmlPageTitle = htmlPageTitle.removeInvalidFilenameCharacters()
-            
-            LogItemRepository.shared.addItem(item: LogItem(message:"Page title detected: \(htmlPageTitle)" ))
-            
-            if imageLinkArray.count > 0
+            createDownloadItems(pageTitle: htmlPageTitle, imageLinkArray: imageLinkArray)
+            imageDownloadLinkFound = true
+        }
+        
+        if parseInfo.followUpClosure != nil
+        {
+            linkToFollowupPage = htmlParser.getLinkToFollowupPage(sourceParam: htmlSource)
+            if linkToFollowupPage != ""
             {
-                createDownloadItems(pageTitle: htmlPageTitle, imageLinkArray: imageLinkArray)
-                imageDownloadLinkFound = true
+                LogItemRepository.shared.addItem(item: LogItem(message:"Next page: \(linkToFollowupPage)" ))
             }
-            
-            if item.followUpClosure != nil
+            else
             {
-                linkToFollowupPage = htmlParser.getLinkToFollowupPage(sourceParam: htmlSource)
-                if linkToFollowupPage != ""
+                if let delegate = self.delegate
                 {
-                    LogItemRepository.shared.addItem(item: LogItem(message:"Next page: \(linkToFollowupPage)" ))
-                }
-                else
-                {
-                    if let delegate = self.delegate
-                    {
-                        delegate.galleryAnalyserStatusMessage(message: "No more pages")
-                    }
+                    delegate.galleryAnalyserStatusMessage(message: "No more pages")
                 }
             }
-            
-            if imageDownloadLinkFound == false
-            {
-                LogItemRepository.shared.addItem(item: LogItem(message:"No picture links found on this page.", priority: .Warning  ))
-            }
+        }
+        
+        if imageDownloadLinkFound == false
+        {
+            LogItemRepository.shared.addItem(item: LogItem(message:"No picture links found on this page.", priority: .Warning  ))
         }
         
         return linkToFollowupPage

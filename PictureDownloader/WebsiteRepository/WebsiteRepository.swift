@@ -1,10 +1,7 @@
-//
 //  WebsiteRepository.swift
 //  PictureDownloaderSwift
-//
 //  Created by Holger Hinzberg on 14.06.14.
 //  Copyright (c) 2014 Holger Hinzberg. All rights reserved.
-//
 
 import Foundation
 
@@ -15,100 +12,135 @@ class WebsiteRepository
     init()
     {
         var item = WebsiteRepositoryItem()
-        item.identification = "http://www.playboyblog.com/wp-content";
-        item.startStrings.append("href=\'http://www.playboyblog.com/wp-content/uploads")
-        item.endStrings.append(".jpg");
-        item.filetypeString = ".jpg";
-        item.removeCharactersFromStart = 6;
-        item.addCharactersAtEnd = 4
+        item.websiteIdentification = "http://www.playboyblog.com/wp-content";
+        var ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\'http://www.playboyblog.com/wp-content/uploads")
+        ident.endStrings.append(".jpg");
+        ident.filetypeString = ".jpg";
+        ident.removeCharactersFromStart = 6;
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "https://babesource.com/galleries/";
-        item.startStrings.append("href=\"https://media.babesource.com/galleries/")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
+        item.websiteIdentification = "https://www.erocurves.com/";
+        ident = WebsiteParseInformation()
+        ident.parseIdentification = "<a href=\'https://cdn.erocurves.com/wp-content/uploads/"
+        ident.startStrings.append("<a href=\'https://cdn.erocurves.com/wp-content/uploads/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 9
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
+            
+        ident = WebsiteParseInformation()
+        ident.parseIdentification = "<a href=\'https://cdn.erocurves.com/galleries/"
+        ident.startStrings.append("<a href=\'https://cdn.erocurves.com/galleries/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 9
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "https://www.elitebabes.com";
-        item.startStrings.append("href=\"https://k5x5n5g8.ssl.hwcdn.net/content")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
-        websites.append(item)
-
-        
-//        item = WebsiteRepositoryItem()
-//        item.identification = "https://octokuro.com/gallery/";
-//        item.startStrings.append("href=\"/images/previews/")
-//        item.endStrings.append(".jpg")
-//        item.filetypeString = ".jpg"
-//        item.removeCharactersFromStart = 6
-//        item.addCharactersAtEnd = 4
-//        item.imageUrlAdditionalPrefix = "https://octokuro.com"
-//        websites.append(item)
-
-//        item = WebsiteRepositoryItem()
-//        item.identification = "http://www.centerfoldlist.com/feed/";
-//        item.startStrings.append("href=\'http://www.centerfoldlist.com/galleries")
-//        item.endStrings.append(".jpg")
-//        item.filetypeString = ".jpg"
-//        item.removeCharactersFromStart = 6
-//        item.addCharactersAtEnd = 4
-//        websites.append(item)
-        
-        item = WebsiteRepositoryItem()
-        item.identification = "http://www.babehub.com"
-        item.startStrings.append("href=\"http://cdn1.babehub.com/content")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
+        item.websiteIdentification = "https://babesource.com/galleries/";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"https://media.babesource.com/galleries/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "http://pmatehunter.com";
-        item.startStrings.append("href=\"http://cdn1.pmatehunter.com/content")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
+        item.websiteIdentification = "https://www.elitebabes.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"https://k5x5n5g8.ssl.hwcdn.net/content")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
-
+        
+        
+        //        item = WebsiteRepositoryItem()
+        //        item.identification = "https://octokuro.com/gallery/";
+        //        item.startStrings.append("href=\"/images/previews/")
+        //        item.endStrings.append(".jpg")
+        //        item.filetypeString = ".jpg"
+        //        item.removeCharactersFromStart = 6
+        //        item.addCharactersAtEnd = 4
+        //        item.imageUrlAdditionalPrefix = "https://octokuro.com"
+        //        websites.append(item)
+        
+        //        item = WebsiteRepositoryItem()
+        //        item.identification = "http://www.centerfoldlist.com/feed/";
+        //        item.startStrings.append("href=\'http://www.centerfoldlist.com/galleries")
+        //        item.endStrings.append(".jpg")
+        //        item.filetypeString = ".jpg"
+        //        item.removeCharactersFromStart = 6
+        //        item.addCharactersAtEnd = 4
+        //        websites.append(item)
+        
         item = WebsiteRepositoryItem()
-        item.identification = "www.hqbabes.com";
-        item.startStrings.append("href=\"//c.xme.net/")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
-        item.imageUrlAdditionalPrefix = "https:"
+        item.websiteIdentification = "http://www.babehub.com"
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"http://cdn1.babehub.com/content")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "www.hqsluts.com";
-        item.startStrings.append("href=\"http://cdn.hqsluts.com/")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg"
-        item.removeCharactersFromStart = 6
-        item.addCharactersAtEnd = 4
+        item.websiteIdentification = "http://pmatehunter.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"http://cdn1.pmatehunter.com/content")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
         websites.append(item)
         
         item = WebsiteRepositoryItem()
-        item.identification = "hentai-cosplays.com";
-        item.startStrings.append("<div class=\"icon-overlay\">")
-        item.startStrings.append("<img src=")
-        item.endStrings.append(".jpg")
-        item.filetypeString = ".jpg";
-        item.removeCharactersFromStart = 10;
-        item.addCharactersAtEnd = 4;
+        item.websiteIdentification = "www.hqbabes.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"//c.xme.net/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        ident.imageUrlAdditionalPrefix = "https:"
+        item.websideParseInformation.append(ident)
+        websites.append(item)
         
-       item.followupPageIdentifier = "\">next&gt;</a>"
-        item.followUpClosure =
+        item = WebsiteRepositoryItem()
+        item.websiteIdentification = "www.hqsluts.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"http://cdn.hqsluts.com/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
+        websites.append(item)
+        
+        item = WebsiteRepositoryItem()
+        item.websiteIdentification = "hentai-cosplays.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("<div class=\"icon-overlay\">")
+        ident.startStrings.append("<img src=")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg";
+        ident.removeCharactersFromStart = 10;
+        ident.addCharactersAtEnd = 4;
+        ident.followupPageIdentifier = "\">next&gt;</a>"
+        ident.followUpClosure =
             { (text:String) -> String in
                 var substring = ""
                 
@@ -126,27 +158,45 @@ class WebsiteRepository
                     }
                 }
                 return substring
-        }
-       
+            }
+        item.websideParseInformation.append(ident)
         websites.append(item)
     }
     
     // Diese Methode prüft, ob im HTML source der geladenen Seite
     // die identification eines der WebsiteRepositoryItem gefunden werden kann.
-    func getItemForIdentification(ident:String) -> [WebsiteRepositoryItem]
+    func identifyMatchingRepositoryItem(htmlSource:String) -> WebsiteRepositoryItem?
     {
-        var items = [WebsiteRepositoryItem]()
-        
         for  item in self.websites
         {
-            // print("Checking: \(item.identification)")
-            
-            if ident.caseInsensitiveContains(substring: item.identification)
+            print("Checking WebsiteRepositoryItem: \(item.websiteIdentification)")
+            if htmlSource.caseInsensitiveContains(substring: item.websiteIdentification)
             {
-                items.append(item)
-                // print("Match found: \(item.identification)")
+                print("Match WebsiteRepositoryItem: \(item.websiteIdentification)")
+                return item;
             }
         }
-        return items;
+        return nil
+    }
+    
+    // Find the correct WebsiteParseInformation for this HTML and WebsiteRepositoryItem
+    func identifyMatchingParseInformation(htmlSource:String, item : WebsiteRepositoryItem) -> WebsiteParseInformation?
+    {
+        // If the Item has only one set of ParseInformation we have to use it
+        if item.websideParseInformation.count == 1 {
+            return item.websideParseInformation.first
+        }
+        
+        for  info in item.websideParseInformation
+        {
+            print("Checking WebsiteParseInformation: \(info.parseIdentification)")
+            
+            if htmlSource.caseInsensitiveContains(substring: info.parseIdentification)
+            {
+                print("Match WebsiteParseInformation: \(info.parseIdentification)")
+                return info;
+            }
+        }
+        return nil
     }
 }

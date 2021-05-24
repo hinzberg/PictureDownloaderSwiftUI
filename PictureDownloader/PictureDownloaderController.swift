@@ -61,6 +61,8 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
         // currentPasteboardUrl = "https://www.elitebabes.com/huge-round-tits-with-large-pink-areolas-and-sexy-slim-waist-are-the-best-sexual-assets-of-sexy-maria/"
+        // currentPasteboardUrl = "https://www.erocurves.com/bunny-colby-in-tight-shorts/"
+        // currentPasteboardUrl = "https://www.erocurves.com/kate-england-puffy-nipples/"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""

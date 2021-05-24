@@ -7,11 +7,11 @@ import Cocoa
 
 public class HtmlParser: NSObject
 {
-    private let  repositoryItem:WebsiteRepositoryItem
+    private let parseInfo:WebsiteParseInformation
     
-    init(item:WebsiteRepositoryItem)
+    init(parseInformation:WebsiteParseInformation)
     {
-        repositoryItem = item
+        parseInfo = parseInformation
     }
     
     public func getImageArray(sourceParam:String) -> ([String])
@@ -35,12 +35,12 @@ public class HtmlParser: NSObject
       
         // An die Bilder URLs zusätzlich einen Prefix
         // anhängen, wenn nötig
-        if  repositoryItem.imageUrlAdditionalPrefix != ""
+        if  parseInfo.imageUrlAdditionalPrefix != ""
         {
             var modifiedImageArray = [String]()
             for image in imageArray
             {
-                modifiedImageArray.append(repositoryItem.imageUrlAdditionalPrefix + image)
+                modifiedImageArray.append(parseInfo.imageUrlAdditionalPrefix + image)
             }
             imageArray = modifiedImageArray
         }
@@ -64,7 +64,7 @@ public class HtmlParser: NSObject
         var source = sourceParam
         
         // Anfang abschneiden
-        for text in repositoryItem.startStrings
+        for text in parseInfo.startStrings
         {
             let theRange = source.range(of: text, options: NSString.CompareOptions.caseInsensitive)
             if theRange != nil
@@ -80,7 +80,7 @@ public class HtmlParser: NSObject
         
         
         // Ende abschneiden
-        for text in repositoryItem.endStrings
+        for text in parseInfo.endStrings
         {
             let theRange = source.range(of:text, options: NSString.CompareOptions.caseInsensitive)
             if theRange != nil
@@ -96,7 +96,7 @@ public class HtmlParser: NSObject
         
         // Beliebige Anzahl von zeichem vom Start abscheiden
         // Eigene Methode aus HHSStringHelper
-        source = source.substringRightFrom(characterCount: repositoryItem.removeCharactersFromStart)
+        source = source.substringRightFrom(characterCount: parseInfo.removeCharactersFromStart)
         return source
     }
     
@@ -124,9 +124,9 @@ public class HtmlParser: NSObject
     {
         var followUpLink = ""
         
-        if sourceParam.contains(repositoryItem.followupPageIdentifier)
+        if sourceParam.contains(parseInfo.followupPageIdentifier)
         {
-            if let closure = repositoryItem.followUpClosure
+            if let closure = parseInfo.followUpClosure
             {
                     followUpLink = closure(sourceParam)
             }
