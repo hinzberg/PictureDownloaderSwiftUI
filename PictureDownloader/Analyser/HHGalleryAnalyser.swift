@@ -10,12 +10,13 @@ class HHGalleryAnalyser: NSObject
 {
     private var htmlDownloader = HtmlDownloader();
     private var websiteRepo = WebsiteRepository()
-    private var downloadItemsArray = [HHDownloadItem]()
+    private var downloadItemsArray = [FileDownloadItem]()
     var delegate:HHGalleryAnalyserDelegateProtocol? // Delegate for Completion Handler
     
     @AppStorage("playSoundAtAdd") var playSoundAtAdd = false
     @AppStorage("showNotifications") var showNotifications = false
-    
+    @AppStorage("downloadFolder") var downloadFolder = ""
+  
     override init()
     {
         super.init()
@@ -175,11 +176,12 @@ class HHGalleryAnalyser: NSObject
         for  imageLink in imageLinkArray
         {
             let number = self.downloadItemsArray.count + 1;
-            let downloadItem = HHDownloadItem()
+            let downloadItem = FileDownloadItem()
             downloadItem.isActiveForDownload = true
-            downloadItem.imageSourceUrl = imageLink
-            downloadItem.imageTargetName = "\(pageTitle) \(number)"
-            downloadItem.imageTagetExtention = ".jpg"
+            downloadItem.webSourceUrl = imageLink
+            downloadItem.localTargetFilename = "\(pageTitle) \(number)"
+            downloadItem.localTargetFileExtension = ".jpg"
+            downloadItem.localTargetFolder = self.downloadFolder
             downloadItemsArray.append(downloadItem)
         }
     }
@@ -188,7 +190,7 @@ class HHGalleryAnalyser: NSObject
     {
     }
     
-    func downloadItemAsyncCompleted(item: HHDownloadItem)
+    func downloadItemAsyncCompleted(item: FileDownloadItem)
     {
     }
     

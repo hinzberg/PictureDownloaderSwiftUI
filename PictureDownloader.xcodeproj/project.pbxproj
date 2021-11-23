@@ -23,14 +23,14 @@
 		3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */; };
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
 		3F7E037425641F59008D948C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037325641F59008D948C /* Preview Assets.xcassets */; };
-		3F7E038E25641F8F008D948C /* HHFileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038225641F8F008D948C /* HHFileDownloader.swift */; };
+		3F7E038E25641F8F008D948C /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038225641F8F008D948C /* FileDownloader.swift */; };
 		3F7E039025641F8F008D948C /* String + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038425641F8F008D948C /* String + Helper.swift */; };
 		3F7E039125641F8F008D948C /* HHGalleryAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */; };
 		3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */; };
 		3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038725641F8F008D948C /* HtmlParser.swift */; };
-		3F7E039425641F8F008D948C /* HHFileDownloaderDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038825641F8F008D948C /* HHFileDownloaderDelegateProtocol.swift */; };
+		3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */; };
 		3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */; };
-		3F7E039625641F8F008D948C /* HHDownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038B25641F8F008D948C /* HHDownloadItem.swift */; };
+		3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038B25641F8F008D948C /* FileDownloadItem.swift */; };
 		3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */; };
 		3F7E039825641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038D25641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift */; };
 		3F7E039D25641F99008D948C /* WebsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039B25641F99008D948C /* WebsiteRepository.swift */; };
@@ -40,7 +40,6 @@
 		3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */; };
 		3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */; };
 		3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */; };
-		3FEE732A25928F4C00980495 /* changelog in Resources */ = {isa = PBXBuildFile; fileRef = 3FEE732925928F4C00980495 /* changelog */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +55,7 @@
 		3F692EF32640552D00330900 /* Programflow */ = {isa = PBXFileReference; lastKnownFileType = text; path = Programflow; sourceTree = "<group>"; };
 		3F696F4926068F92000AD9A8 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		3F696F4E26069158000AD9A8 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		3F6FA6B4274D8C5C008FF87C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSound + Extension.swift"; sourceTree = "<group>"; };
 		3F7E036925641F59008D948C /* Picture Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Downloader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDownloaderApp.swift; sourceTree = "<group>"; };
@@ -63,14 +63,14 @@
 		3F7E037325641F59008D948C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F7E037525641F59008D948C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7E037625641F59008D948C /* PictureDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PictureDownloader.entitlements; sourceTree = "<group>"; };
-		3F7E038225641F8F008D948C /* HHFileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileDownloader.swift; sourceTree = "<group>"; };
+		3F7E038225641F8F008D948C /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		3F7E038425641F8F008D948C /* String + Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Helper.swift"; sourceTree = "<group>"; };
 		3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHGalleryAnalyser.swift; sourceTree = "<group>"; };
 		3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardUrlGetter.swift; sourceTree = "<group>"; };
 		3F7E038725641F8F008D948C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
-		3F7E038825641F8F008D948C /* HHFileDownloaderDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileDownloaderDelegateProtocol.swift; sourceTree = "<group>"; };
+		3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloaderDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRepository.swift; sourceTree = "<group>"; };
-		3F7E038B25641F8F008D948C /* HHDownloadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItem.swift; sourceTree = "<group>"; };
+		3F7E038B25641F8F008D948C /* FileDownloadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadItem.swift; sourceTree = "<group>"; };
 		3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRowView.swift; sourceTree = "<group>"; };
 		3F7E038D25641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHGalleryAnalyserDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F7E039B25641F99008D948C /* WebsiteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRepository.swift; sourceTree = "<group>"; };
@@ -80,7 +80,6 @@
 		3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteParseInformation.swift; sourceTree = "<group>"; };
 		3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileHelper.swift; sourceTree = "<group>"; };
 		3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkHandler.swift; sourceTree = "<group>"; };
-		3FEE732925928F4C00980495 /* changelog */ = {isa = PBXFileReference; lastKnownFileType = text; path = changelog; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +117,8 @@
 		3F7E036025641F59008D948C = {
 			isa = PBXGroup;
 			children = (
+				3F6FA6B4274D8C5C008FF87C /* README.md */,
 				3F692EF32640552D00330900 /* Programflow */,
-				3FEE732925928F4C00980495 /* changelog */,
 				3F7E036B25641F59008D948C /* PictureDownloader */,
 				3F7E036A25641F59008D948C /* Products */,
 			);
@@ -178,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */,
-				3F7E038B25641F8F008D948C /* HHDownloadItem.swift */,
 				3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */,
 			);
 			path = DownloadItem;
@@ -209,8 +207,9 @@
 		3F8C8BF82570517A002E01F2 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
-				3F7E038825641F8F008D948C /* HHFileDownloaderDelegateProtocol.swift */,
-				3F7E038225641F8F008D948C /* HHFileDownloader.swift */,
+				3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */,
+				3F7E038225641F8F008D948C /* FileDownloader.swift */,
+				3F7E038B25641F8F008D948C /* FileDownloadItem.swift */,
 				3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */,
 			);
 			path = Downloader;
@@ -282,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FEE732A25928F4C00980495 /* changelog in Resources */,
 				3F7E037425641F59008D948C /* Preview Assets.xcassets in Resources */,
 				3F7E037125641F59008D948C /* Assets.xcassets in Resources */,
 				3F692EF42640552D00330900 /* Programflow in Resources */,
@@ -308,10 +306,10 @@
 				3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */,
 				3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */,
 				3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */,
-				3F7E039425641F8F008D948C /* HHFileDownloaderDelegateProtocol.swift in Sources */,
+				3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */,
 				3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */,
 				3F2F42C225669EC900E4DC1B /* PictureDownloaderController.swift in Sources */,
-				3F7E038E25641F8F008D948C /* HHFileDownloader.swift in Sources */,
+				3F7E038E25641F8F008D948C /* FileDownloader.swift in Sources */,
 				3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */,
 				3F40CAD0258017AA009834FB /* LogItemRepository.swift in Sources */,
 				3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */,
@@ -319,7 +317,7 @@
 				3F2F42BF256685C600E4DC1B /* DownloadQueView.swift in Sources */,
 				3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */,
 				3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */,
-				3F7E039625641F8F008D948C /* HHDownloadItem.swift in Sources */,
+				3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */,
 				3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */,
 				3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */,
 				3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */,

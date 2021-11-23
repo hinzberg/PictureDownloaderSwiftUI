@@ -4,18 +4,19 @@
 
 import SwiftUI
 
-public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HHFileDownloaderDelegateProtocol, ObservableObject  {
-    
+public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, FileDownloaderDelegateProtocol, ObservableObject
+{
     var downloadItemRepository = HHDownloadItemRepository.shared;
     var lastPasteboardUrl : String = ""
     var urlGetter = PasteboardUrlGetter()
     var galleryAnalyser = HHGalleryAnalyser()
-    var fileDownloader = HHFileDownloader()
+    var fileDownloader = FileDownloader()
     var timer : Timer?
     @Published var activeItemName = ""
     
     @AppStorage("playSoundAtFinish") var playSoundAtFinish = false
     @AppStorage("showNotifications") var showNotifications = false
+    @AppStorage("downloadFolder") var downloadFolder = ""
     
     init() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
@@ -23,31 +24,22 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         
         // Assign Delegate
         self.fileDownloader.delegate = self
+       
         // Assign folder to save pictures
-        self.fileDownloader.downloadFolder = self.checkOrCreateSaveFolder()
+       self.checkOrCreateSaveFolder()
     }
     
-    private func checkOrCreateSaveFolder() -> (String)
+    private func checkOrCreateSaveFolder()
     {
-        var folder:String = ""
-        
-        let imagePath = "imagepath"
-        let defaults = UserDefaults.standard
-        let data:AnyObject? = defaults.object(forKey: imagePath) as AnyObject
-        if data != nil && data is String
+        if self.downloadFolder.isEmpty
         {
-            folder = data as! String
+            var folder:String = NSHomeDirectory()
+            folder += "Desktop/PictureDownloader"
+            self.downloadFolder = folder
         }
-        else
-        {
-            folder = NSHomeDirectory()
-            folder += "Desktop/Babes"
-        }
-        
+
         let fileHelper = HHFileHelper()
-        var _ = fileHelper.checkIfFolderDoesExists(folder: folder, doCreate: true)
-        
-        return folder
+        var _ = fileHelper.checkIfFolderDoesExists(folder: self.downloadFolder, doCreate: true)
     }
     
     @objc func timerTick() {
@@ -56,7 +48,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
        
         // For Debug
         // currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html";
-         // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
+        // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
@@ -80,7 +72,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
     
     // MARK:- GalleryAnalyserDelegate-Methods
     
-    func galleryAnalysingCompleted(downloadItemsArray: [HHDownloadItem])
+    func galleryAnalysingCompleted(downloadItemsArray: [FileDownloadItem])
     {
         self.downloadItemRepository.addItems(itemsArray: downloadItemsArray)
         self.showBadgeCount()
@@ -113,9 +105,9 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         let item = self.downloadItemRepository.items.first
         if let downloadItem = item
         {
-            LogItemRepository.shared.addItem(item: LogItem(message: "Loading \(downloadItem.imageSourceUrl)"))
+            LogItemRepository.shared.addItem(item: LogItem(message: "Loading \(downloadItem.webSourceUrl)"))
             // Statustext
-            self.activeItemName = "\(downloadItem.imageTargetName)\(downloadItem.imageTagetExtention)"
+            self.activeItemName = "\(downloadItem.localTargetFilename)\(downloadItem.localTargetFileExtension)"
             // Load item
             self.fileDownloader.downloadItemAsync(item: downloadItem)
         }
@@ -131,7 +123,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         // Unused
     }
     
-    func downloadItemAsyncCompleted(item: HHDownloadItem) {
+    func downloadItemAsyncCompleted(item: FileDownloadItem) {
         
         self.downloadItemRepository.removeItem(item: item)
         self.showBadgeCount()
@@ -151,7 +143,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, HH
         }
     }
     
-    func downloadError(item:HHDownloadItem, message:String) {
+    func downloadError(item:FileDownloadItem, message:String) {
         LogItemRepository.shared.addItem(item: LogItem(message: message, priority: .Exclamation))
         self.downloadItemAsyncCompleted(item: item)
     }

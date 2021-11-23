@@ -5,9 +5,9 @@
 
 import Foundation
 
-protocol  HHFileDownloaderDelegateProtocol
+protocol  FileDownloaderDelegateProtocol
 {
     func downloadFileAsyncCompleted(fileLocation:String)
-    func downloadItemAsyncCompleted(item:HHDownloadItem)
-    func downloadError(item:HHDownloadItem, message:String)
+    func downloadItemAsyncCompleted(item:FileDownloadItem)
+    func downloadError(item:FileDownloadItem, message:String)
 }

@@ -14,7 +14,7 @@ public class HHDownloadItemRepository: ObservableObject {
 
     private var sequentialNumber : Int = 1
    @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
-   @Published var items = [HHDownloadItem]()
+   @Published var items = [FileDownloadItem]()
    @Published var itemsCountText = ""
 
     func removeAll()
@@ -23,10 +23,10 @@ public class HHDownloadItemRepository: ObservableObject {
         self.updateItemsCountText()
    }
     
-    func addItem(item : HHDownloadItem )
+    func addItem(item : FileDownloadItem )
     {
         if self.appendSequentialNumber {
-            item.imageTargetName = "\(item.imageTargetName) (\(self.sequentialNumber))"
+            item.localTargetFilename = "\(item.localTargetFilename) (\(self.sequentialNumber))"
             sequentialNumber = sequentialNumber + 1
         }
         else {
@@ -37,14 +37,14 @@ public class HHDownloadItemRepository: ObservableObject {
         self.updateItemsCountText()
    }
     
-    func addItems(itemsArray : [HHDownloadItem] )
+    func addItems(itemsArray : [FileDownloadItem] )
     {
         for item in itemsArray {
             self.addItem(item: item)
         }
    }
     
-    func removeItem(item : HHDownloadItem )
+    func removeItem(item : FileDownloadItem )
     {
         items.removeAll { value in
             return value.id == item.id
@@ -52,13 +52,14 @@ public class HHDownloadItemRepository: ObservableObject {
         self.updateItemsCountText()
    }
     
-    private func createUnqiueFilename(checkItem : HHDownloadItem)
+    private func createUnqiueFilename(checkItem : FileDownloadItem)
     {
-        for item in self.items {
+        for item in self.items
+        {
             // Same name but different sourceUrl
-            if item.imageTargetName == checkItem.imageTargetName && item.imageSourceUrl != checkItem.imageSourceUrl
+            if item.localTargetFilename == checkItem.localTargetFilename && item.webSourceUrl != checkItem.webSourceUrl
             {
-                checkItem.imageTargetName = checkItem.imageTargetName + "_1"
+                checkItem.localTargetFilename = checkItem.localTargetFilename + "_1"
                 self.createUnqiueFilename(checkItem: checkItem)
             }
         }

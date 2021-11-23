@@ -10,7 +10,7 @@ struct SettingsView: View {
     @AppStorage("playSoundAtFinish") var playSoundAtFinish = false
     @AppStorage("showNotifications") var showNotifications = false
     @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
-    @AppStorage("imagepath") var imagePathString = ""
+    @AppStorage("downloadFolder") var downloadFolder = ""
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct SettingsView: View {
             }
             
             HStack{
-                TextField("Enter save path", text: $imagePathString)
+                TextField("Enter save path", text: $downloadFolder)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button(action: self.pickFolder, label: {
                     Text("...")
@@ -51,7 +51,7 @@ struct SettingsView: View {
     }
     
     func pickFolder() {
-        let initDictectory = NSURL(fileURLWithPath: self.imagePathString)
+        let initDictectory = NSURL(fileURLWithPath: self.downloadFolder)
         let openPanel = NSOpenPanel()
         openPanel.canChooseDirectories = true
         openPanel.canChooseFiles = false
@@ -64,7 +64,7 @@ struct SettingsView: View {
             {
                 //  The selected Folder
                 let rootPath = openPanel.url!
-                self.imagePathString = rootPath.path
+                self.downloadFolder = rootPath.path
                 
                 FileBookmarkHandler.shared.storeFolderInBookmark(url: openPanel.url!)
                 FileBookmarkHandler.shared.saveBookmarksData()
