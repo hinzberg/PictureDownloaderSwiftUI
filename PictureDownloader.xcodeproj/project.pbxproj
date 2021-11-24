@@ -19,6 +19,8 @@
 		3F692EF42640552D00330900 /* Programflow in Resources */ = {isa = PBXBuildFile; fileRef = 3F692EF32640552D00330900 /* Programflow */; };
 		3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4926068F92000AD9A8 /* SidebarView.swift */; };
 		3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4E26069158000AD9A8 /* DownloadView.swift */; };
+		3F6FA6B6274D8FC4008FF87C /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */; };
+		3F6FA6B8274D9421008FF87C /* Array + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FA6B7274D9421008FF87C /* Array + Helper.swift */; };
 		3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */; };
 		3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */; };
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
@@ -40,6 +42,7 @@
 		3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */; };
 		3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */; };
 		3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */; };
+		3FF5C377274ED42B001BC49E /* GalleryPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,8 @@
 		3F696F4926068F92000AD9A8 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		3F696F4E26069158000AD9A8 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		3F6FA6B4274D8C5C008FF87C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		3F6FA6B7274D9421008FF87C /* Array + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Helper.swift"; sourceTree = "<group>"; };
 		3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSound + Extension.swift"; sourceTree = "<group>"; };
 		3F7E036925641F59008D948C /* Picture Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Downloader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDownloaderApp.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteParseInformation.swift; sourceTree = "<group>"; };
 		3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileHelper.swift; sourceTree = "<group>"; };
 		3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkHandler.swift; sourceTree = "<group>"; };
+		3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPictureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,8 @@
 				3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */,
 				3F2F42BB2566857400E4DC1B /* SettingsView.swift */,
 				3F696F4E26069158000AD9A8 /* DownloadView.swift */,
+				3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */,
+				3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */,
 				3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */,
 				3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */,
+				3F6FA6B7274D9421008FF87C /* Array + Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -296,8 +305,10 @@
 			files = (
 				3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */,
 				3F40CACD25801764009834FB /* LogItem.swift in Sources */,
+				3FF5C377274ED42B001BC49E /* GalleryPictureView.swift in Sources */,
 				3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */,
 				3F40CAD625801A24009834FB /* LogItemListView.swift in Sources */,
+				3F6FA6B6274D8FC4008FF87C /* GalleryView.swift in Sources */,
 				3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */,
 				3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */,
 				3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */,
@@ -318,6 +329,7 @@
 				3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */,
 				3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */,
 				3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */,
+				3F6FA6B8274D9421008FF87C /* Array + Helper.swift in Sources */,
 				3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */,
 				3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */,
 				3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */,
@@ -463,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cocoa-coding.PictureDownloader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -488,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cocoa-coding.PictureDownloader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

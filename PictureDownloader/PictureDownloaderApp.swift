@@ -35,16 +35,6 @@ struct PictureDownloaderApp: App {
                     Button(action: self.downloadAction, label: {
                         Image(systemName: "square.and.arrow.down.fill").font(.headline)
                     })}
-                
-                ToolbarItem (placement: .primaryAction) {
-                    Button(action: self.previewAction, label: {
-                        Image(systemName: "square.grid.2x2.fill").font(.headline)
-                    })}
-                
-                ToolbarItem (placement: .primaryAction) {
-                    Button(action: self.settingsAction, label: {
-                        Image(systemName: "gearshape.fill").font(.headline)
-                    })}
             }
             .environmentObject(controller)
             .environmentObject(downloadItemRepository)
@@ -60,12 +50,4 @@ struct PictureDownloaderApp: App {
     func downloadAction () {
         self.controller.startDownloading()
     }
-    
-    func previewAction () {
-    }
-    
-    func settingsAction () {
-    }
-    
-    
 }

@@ -48,6 +48,7 @@ struct SettingsView: View {
             
             Spacer()
         }.padding()
+         .background(.background)
     }
     
     func pickFolder() {

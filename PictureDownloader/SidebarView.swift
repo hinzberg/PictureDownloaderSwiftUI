@@ -17,6 +17,9 @@ struct SidebarView: View {
             NavigationLink(destination: DownloadQueView()) {
                 Label("Download Que", systemImage: "list.dash")}
             
+            NavigationLink(destination: GalleryView()) {
+                Label("Gallery", systemImage: "square.grid.2x2")}
+                        
             NavigationLink(destination: LogItemListView()    ) {
                 Label("Logs", systemImage: "text.bubble")}
             
@@ -24,9 +27,6 @@ struct SidebarView: View {
                 Label("Settings", systemImage: "gear")}
             
         }.listStyle(SidebarListStyle())
-        
-
-        
     }
 }
 

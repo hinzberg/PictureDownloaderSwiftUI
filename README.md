@@ -1,5 +1,8 @@
 #  Picture Downloader
 
+**2021-11-24**
+- Gallery View added for downloaded images
+
 **2021-11-23**
 - FileDownloader only supports download with FileDownloadItem
 - FileDownloadItem new properties: localTargetFolder, localTargetFilename, localTargetFileExtension

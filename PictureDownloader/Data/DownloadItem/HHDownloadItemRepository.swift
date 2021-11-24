@@ -14,16 +14,20 @@ public class HHDownloadItemRepository: ObservableObject {
 
     private var sequentialNumber : Int = 1
    @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
-   @Published var items = [FileDownloadItem]()
-   @Published var itemsCountText = ""
-
+   
+    @Published var itemsDownloaded = [FileDownloadItem]()
+    @Published var itemsDownloadedCountText = ""
+    @Published var itemsToDownload = [FileDownloadItem]()
+    @Published var itemsToDownloadCountText = ""
+    
     func removeAll()
     {
-        items.removeAll()
+        itemsDownloaded.removeAll()
+        itemsToDownload.removeAll()
         self.updateItemsCountText()
    }
     
-    func addItem(item : FileDownloadItem )
+    func addItemToDownload(item : FileDownloadItem )
     {
         if self.appendSequentialNumber {
             item.localTargetFilename = "\(item.localTargetFilename) (\(self.sequentialNumber))"
@@ -33,20 +37,31 @@ public class HHDownloadItemRepository: ObservableObject {
             self.createUnqiueFilename(checkItem: item)
         }
         
-        items.append(item)
+        itemsToDownload.append(item)
         self.updateItemsCountText()
    }
     
-    func addItems(itemsArray : [FileDownloadItem] )
+    func addItemsToDownload(itemsArray : [FileDownloadItem] )
     {
         for item in itemsArray {
-            self.addItem(item: item)
+            self.addItemToDownload(item: item)
         }
    }
     
-    func removeItem(item : FileDownloadItem )
+    func removeItemToDownload(item : FileDownloadItem )
     {
-        items.removeAll { value in
+        itemsToDownload.removeAll { value in
+            return value.id == item.id
+        }
+        self.updateItemsCountText()
+   }
+    
+    func moveItemToDownloaded(item : FileDownloadItem )
+    {
+        let items = itemsToDownload.all(where: { $0.id == item.id })
+        itemsDownloaded.append(contentsOf: items)
+         
+        itemsToDownload.removeAll { value in
             return value.id == item.id
         }
         self.updateItemsCountText()
@@ -54,7 +69,7 @@ public class HHDownloadItemRepository: ObservableObject {
     
     private func createUnqiueFilename(checkItem : FileDownloadItem)
     {
-        for item in self.items
+        for item in self.itemsToDownload
         {
             // Same name but different sourceUrl
             if item.localTargetFilename == checkItem.localTargetFilename && item.webSourceUrl != checkItem.webSourceUrl
@@ -66,12 +81,15 @@ public class HHDownloadItemRepository: ObservableObject {
     }
 
     private func updateItemsCountText() {
-        if self.items.count == 0 {
-            self.itemsCountText = "Keine Bilder in der Warteschlange";
-        } else if self.items.count > 1 {
-            self.itemsCountText = "\(self.items.count) Bilder in der Warteschlage"
+        
+        self.itemsDownloadedCountText = "\(self.itemsDownloaded.count)"
+        
+        if self.itemsToDownload.count == 0 {
+            self.itemsToDownloadCountText = "Keine Bilder in der Warteschlange";
+        } else if self.itemsToDownload.count > 1 {
+            self.itemsToDownloadCountText = "\(self.itemsToDownload.count) Bilder in der Warteschlage"
         } else {
-        self.itemsCountText = "Ein Bild in der Warteschlage"
+        self.itemsToDownloadCountText = "Ein Bild in der Warteschlage"
         }
     }
 }

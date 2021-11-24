@@ -74,7 +74,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     
     func galleryAnalysingCompleted(downloadItemsArray: [FileDownloadItem])
     {
-        self.downloadItemRepository.addItems(itemsArray: downloadItemsArray)
+        self.downloadItemRepository.addItemsToDownload(itemsArray: downloadItemsArray)
         self.showBadgeCount()
     }
     
@@ -83,7 +83,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
   
     private func showBadgeCount()
     {
-        let itemsCount = self.downloadItemRepository.items.count;
+        let itemsCount = self.downloadItemRepository.itemsToDownload.count;
         if itemsCount > 0
         {
             let doc =  NSApp.dockTile as NSDockTile
@@ -102,7 +102,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     
     func downloadNextItem() -> ()
     {
-        let item = self.downloadItemRepository.items.first
+        let item = self.downloadItemRepository.itemsToDownload.first
         if let downloadItem = item
         {
             LogItemRepository.shared.addItem(item: LogItem(message: "Loading \(downloadItem.webSourceUrl)"))
@@ -125,10 +125,10 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     
     func downloadItemAsyncCompleted(item: FileDownloadItem) {
         
-        self.downloadItemRepository.removeItem(item: item)
+        self.downloadItemRepository.moveItemToDownloaded(item: item)
         self.showBadgeCount()
         
-        if downloadItemRepository.items.count > 0 {
+        if downloadItemRepository.itemsToDownload.count > 0 {
             self.downloadNextItem()
         } else {
             if self.playSoundAtFinish {

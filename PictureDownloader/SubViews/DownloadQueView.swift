@@ -14,12 +14,12 @@ struct DownloadQueView: View {
         VStack {
             VStack {
                 List {
-                    ForEach (downloadItemRepository.items, id: \.id) { item in
+                    ForEach (downloadItemRepository.itemsToDownload, id: \.id) { item in
                         HHDownloadItemRowView(item: item)
                     }
                 }
                 VStack{
-                    Text("\(self.downloadItemRepository.itemsCountText)")
+                    Text("\(self.downloadItemRepository.itemsToDownloadCountText)")
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
