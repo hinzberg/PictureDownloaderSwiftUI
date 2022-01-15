@@ -3,25 +3,38 @@
 //  Created by Holger Hinzberg on 23.11.21.
 
 import SwiftUI
+import WrappingHStack
 
 struct GalleryView: View {
     
     @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
+    @State private var pictureSize: Double = 200
     
     var columns: [GridItem] = [
         GridItem(.adaptive(minimum: 250)),
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: self.columns, alignment: .center, spacing: 10)  {
-                ForEach(downloadItemRepository.itemsDownloaded, id: \.id) {item in
-                    GalleryPictureView(item: item)
+        
+        VStack {
+            ScrollView {
+                WrappingHStack(downloadItemRepository.itemsDownloaded, id: \.self ) { item in
+                    GalleryPictureView(item: item , size: $pictureSize)
                         .contextMenu {
                             Button("Show in Finder") { showInFinder(path: item.localTargetFullPathWithFile) }
                         }
-                }
+                }.padding()
             }
+            Spacer()
+            
+            HStack {
+                Spacer()
+                Slider(value: $pictureSize , in: 100...500)
+                    .frame(width: 300)
+                Text("\(pictureSize, specifier: "%.0f")")
+            }.padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 10))
+                .background(.thinMaterial)
+            
         }.background(.background)
     }
     

@@ -9,12 +9,14 @@ import SwiftUI
 
 struct GalleryPictureView: View {
     
-    public var fileName: String
-    public var fileURL:URL?
+    @Binding var pictureSize: Double
+    private var fileName: String
+    private var fileURL:URL?
     
-    init(item : FileDownloadItem) {
+    init(item : FileDownloadItem, size : Binding<Double>) {
         self.fileURL =  URL(fileURLWithPath: item.localTargetFullPathWithFile)
         self.fileName = item.localTargetFilename
+        self._pictureSize = size
     }
     
     var body: some View {
@@ -29,18 +31,20 @@ struct GalleryPictureView: View {
                     Rectangle()
                         .fill(.thinMaterial)
                 }
-                .frame(width: 200, height: 200)
+                .frame(width: pictureSize, height: pictureSize)
                 .cornerRadius(10)
             
             Text(fileName)
                 .foregroundColor(.primary)
         }
-        .frame(width: 250, height: 250, alignment: .center)
+        .frame(width: pictureSize + 50, height: pictureSize + 50, alignment: .center)
     }
 }
 
 struct GalleryPictureView_Previews: PreviewProvider {
+
+    @State static var pictureSize: Double = 200
     static var previews: some View {
-        GalleryPictureView(item: FileDownloadItem.Example())
+        GalleryPictureView(item: FileDownloadItem.Example() , size:  $pictureSize )
     }
 }
