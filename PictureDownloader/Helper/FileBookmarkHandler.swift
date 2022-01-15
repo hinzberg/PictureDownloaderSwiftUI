@@ -79,8 +79,6 @@ class FileBookmarkHandler {
         }
     }
 
-
-
     func restoreBookmark(_ bookmark: (key: URL, value: Data))
     {
         let restoredUrl: URL?

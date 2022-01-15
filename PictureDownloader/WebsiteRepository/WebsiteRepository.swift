@@ -65,7 +65,18 @@ class WebsiteRepository
         item.websideParseInformation.append(ident)
         websites.append(item)
         
-        
+        item = WebsiteRepositoryItem()
+        item.websiteIdentification = "www.pornpics.de";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("https://cdni.pornpics.de/")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 0
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
+        websites.append(item)
+
+   
         //        item = WebsiteRepositoryItem()
         //        item.identification = "https://octokuro.com/gallery/";
         //        item.startStrings.append("href=\"/images/previews/")

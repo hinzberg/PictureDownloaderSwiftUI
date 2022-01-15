@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct GalleryView: View {
-
+    
     @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
     
     var columns: [GridItem] = [
@@ -17,14 +17,22 @@ struct GalleryView: View {
             LazyVGrid(columns: self.columns, alignment: .center, spacing: 10)  {
                 ForEach(downloadItemRepository.itemsDownloaded, id: \.id) {item in
                     GalleryPictureView(item: item)
+                        .contextMenu {
+                            Button("Show in Finder") { showInFinder(path: item.localTargetFullPathWithFile) }
+                        }
                 }
             }
         }.background(.background)
     }
-}
-
-struct GalleryView_Previews: PreviewProvider {
-    static var previews: some View {
-        GalleryView()
+    
+    func showInFinder(path : String) {
+        let url = URL(fileURLWithPath: path)
+        NSWorkspace.shared.activateFileViewerSelecting([url])
+    }
+    
+    struct GalleryView_Previews: PreviewProvider {
+        static var previews: some View {
+            GalleryView()
+        }
     }
 }

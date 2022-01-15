@@ -36,8 +36,6 @@ struct GalleryPictureView: View {
                 .foregroundColor(.primary)
         }
         .frame(width: 250, height: 250, alignment: .center)
-        //.background(.thinMaterial)
-        //.cornerRadius(10)
     }
 }
 

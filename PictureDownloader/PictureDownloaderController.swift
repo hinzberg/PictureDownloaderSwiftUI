@@ -45,7 +45,6 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     @objc func timerTick() {
    
         var currentPasteboardUrl = ""
-       
         // For Debug
         // currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html";
         // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
@@ -55,6 +54,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
         // currentPasteboardUrl = "https://www.elitebabes.com/huge-round-tits-with-large-pink-areolas-and-sexy-slim-waist-are-the-best-sexual-assets-of-sexy-maria/"
         // currentPasteboardUrl = "https://www.erocurves.com/bunny-colby-in-tight-shorts/"
         // currentPasteboardUrl = "https://www.erocurves.com/kate-england-puffy-nipples/"
+        currentPasteboardUrl = "https://www.pornpics.de/galleries/teenage-interviewer-blake-blossom-gives-a-boobjob-to-a-potential-employee-99737934/"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""
@@ -74,7 +74,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     
     func galleryAnalysingCompleted(downloadItemsArray: [FileDownloadItem])
     {
-        self.downloadItemRepository.addItemsToDownload(itemsArray: downloadItemsArray)
+        self.downloadItemRepository.addItems(itemsArray: downloadItemsArray)
         self.showBadgeCount()
     }
     

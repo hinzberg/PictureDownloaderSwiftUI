@@ -1,5 +1,9 @@
 #  Picture Downloader
 
+**2022-01-15**
+- Contextmenu "Show in Finder" added to Gallery View
+- New Source added to Website Repository
+
 **2021-11-24**
 - Gallery View added for downloaded images
 

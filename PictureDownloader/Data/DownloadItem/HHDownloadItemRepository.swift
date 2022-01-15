@@ -4,8 +4,9 @@
 
 import SwiftUI
 
-public class HHDownloadItemRepository: ObservableObject {
+public class HHDownloadItemRepository: ObservableObject, IRepositoryProtocol {
 
+    typealias T = FileDownloadItem
     static let shared = HHDownloadItemRepository()
     
     private init() {
@@ -20,14 +21,17 @@ public class HHDownloadItemRepository: ObservableObject {
     @Published var itemsToDownload = [FileDownloadItem]()
     @Published var itemsToDownloadCountText = ""
     
-    func removeAll()
-    {
+    func getItemCount() -> Int {
+        return itemsToDownload.count
+    }
+    
+    func removeAllItems() {
         itemsDownloaded.removeAll()
         itemsToDownload.removeAll()
         self.updateItemsCountText()
-   }
+    }
     
-    func addItemToDownload(item : FileDownloadItem )
+    func addItem(item: FileDownloadItem)
     {
         if self.appendSequentialNumber {
             item.localTargetFilename = "\(item.localTargetFilename) (\(self.sequentialNumber))"
@@ -41,14 +45,14 @@ public class HHDownloadItemRepository: ObservableObject {
         self.updateItemsCountText()
    }
     
-    func addItemsToDownload(itemsArray : [FileDownloadItem] )
+    func addItems(itemsArray: [FileDownloadItem])
     {
         for item in itemsArray {
-            self.addItemToDownload(item: item)
+            self.addItem(item: item)
         }
    }
     
-    func removeItemToDownload(item : FileDownloadItem )
+    func removeItem(item: FileDownloadItem)
     {
         itemsToDownload.removeAll { value in
             return value.id == item.id

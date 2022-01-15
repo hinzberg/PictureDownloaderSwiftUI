@@ -14,7 +14,6 @@ public class FileDownloadItem: NSObject, Identifiable
     public var isActiveForDownload:Bool = true
     
     public var webSourceUrl:String = ""
-        
     public var localTargetFolder:String = ""
     public var localTargetFilename:String = ""
     public var localTargetFileExtension:String = ""

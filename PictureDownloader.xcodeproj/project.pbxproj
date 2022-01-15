@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */; };
+		3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */; };
 		3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42B7256681D400E4DC1B /* MainView.swift */; };
 		3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BB2566857400E4DC1B /* SettingsView.swift */; };
 		3F2F42BF256685C600E4DC1B /* DownloadQueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlDownloader.swift; sourceTree = "<group>"; };
+		3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3F2F42B7256681D400E4DC1B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F2F42BB2566857400E4DC1B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadQueView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */,
+				3F2F42C125669EC900E4DC1B /* PictureDownloaderController.swift */,
+				3F2F42B7256681D400E4DC1B /* MainView.swift */,
+				3F696F4926068F92000AD9A8 /* SidebarView.swift */,
 				3F7E03A4256427FE008D948C /* AppDelegate.swift */,
 				3F40CACB25801734009834FB /* Logging */,
 				3F8C8BF9257051A9002E01F2 /* Analyser */,
@@ -152,9 +157,6 @@
 				3F4B62F62566D20A00C3CF4C /* SubViews */,
 				3F7E039A25641F99008D948C /* WebsiteRepository */,
 				3F7E038125641F8F008D948C /* Data */,
-				3F2F42B7256681D400E4DC1B /* MainView.swift */,
-				3F2F42C125669EC900E4DC1B /* PictureDownloaderController.swift */,
-				3F696F4926068F92000AD9A8 /* SidebarView.swift */,
 				3F7E037025641F59008D948C /* Assets.xcassets */,
 				3F7E037525641F59008D948C /* Info.plist */,
 				3F7E037625641F59008D948C /* PictureDownloader.entitlements */,
@@ -186,6 +188,7 @@
 			children = (
 				3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */,
 				3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */,
+				3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */,
 			);
 			path = DownloadItem;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */,
+				3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */,
 				3F40CACD25801764009834FB /* LogItem.swift in Sources */,
 				3FF5C377274ED42B001BC49E /* GalleryPictureView.swift in Sources */,
 				3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */,
