@@ -1,5 +1,9 @@
 #  Picture Downloader
 
+**2022-03-12**
+- Title of analyed web page is shown in the Notificfation
+- New Source added to Website Repository
+
 **2022-01-15**
 - Contextmenu "Show in Finder" added to Gallery View
 - New Source added to Website Repository

@@ -12,8 +12,7 @@ public class HHNotificationCenter {
     
     static let shared = HHNotificationCenter()
     
-    private init() {
-    }
+    private init() {  }
     
     func addSimpleAlarmNotification(title : String , body :String) {
         let notification = UNMutableNotificationContent()

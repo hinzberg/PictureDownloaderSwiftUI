@@ -75,6 +75,17 @@ class WebsiteRepository
         ident.addCharactersAtEnd = 4
         item.websideParseInformation.append(ident)
         websites.append(item)
+        
+        item = WebsiteRepositoryItem()
+        item.websiteIdentification = "drommgirls.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"https://drommgirls.com/content")
+        ident.endStrings.append(".jpeg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 5
+        item.websideParseInformation.append(ident)
+        websites.append(item)
 
    
         //        item = WebsiteRepositoryItem()

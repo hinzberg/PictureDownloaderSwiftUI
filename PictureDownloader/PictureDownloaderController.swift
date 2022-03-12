@@ -20,6 +20,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
     
     init() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+
         self.galleryAnalyser.delegate = self
         
         // Assign Delegate
@@ -55,6 +56,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
         // currentPasteboardUrl = "https://www.erocurves.com/bunny-colby-in-tight-shorts/"
         // currentPasteboardUrl = "https://www.erocurves.com/kate-england-puffy-nipples/"
         // currentPasteboardUrl = "https://www.pornpics.de/galleries/teenage-interviewer-blake-blossom-gives-a-boobjob-to-a-potential-employee-99737934/"
+        // currentPasteboardUrl = "https://drommgirls.com/evelyn-beauty-on-top/"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""

@@ -11,6 +11,7 @@ class HHGalleryAnalyser: NSObject
     private var htmlDownloader = HtmlDownloader();
     private var websiteRepo = WebsiteRepository()
     private var downloadItemsArray = [FileDownloadItem]()
+    private var htmlPageTitle : String = ""
     var delegate:HHGalleryAnalyserDelegateProtocol? // Delegate for Completion Handler
     
     @AppStorage("playSoundAtAdd") var playSoundAtAdd = false
@@ -86,14 +87,15 @@ class HHGalleryAnalyser: NSObject
                 // No more pages. We are done!
                 if self.downloadItemsArray.count > 0
                 {
-                    if self.playSoundAtAdd {
+                    if self.playSoundAtAdd
+                    {
                         NSSound.beep()
                     }
                     
                     // Show Notification
                     if self.showNotifications
                     {
-                        HHNotificationCenter.shared.addSimpleAlarmNotification(title: "Images found!", body: "\(self.downloadItemsArray.count ) new downloads prepared")
+                        HHNotificationCenter.shared.addSimpleAlarmNotification(title: "\(self.htmlPageTitle)", body: "\(self.downloadItemsArray.count ) new downloads prepared")
                     }
                     
                     LogItemRepository.shared.addItem(item: LogItem(message: "\(self.downloadItemsArray.count ) new downloads prepared"))
@@ -134,9 +136,8 @@ class HHGalleryAnalyser: NSObject
         var imageDownloadLinkFound = false;
         let htmlParser = HtmlParser(parseInformation: parseInfo)
         let imageLinkArray = htmlParser.getImageArray(sourceParam: htmlSource)
-        var htmlPageTitle = htmlParser.cutStringBetween(sourceParam: htmlSource, startString: "<title>", endString: "</title>")
-        htmlPageTitle = htmlPageTitle.fixEncoding()
-        htmlPageTitle = htmlPageTitle.removeInvalidFilenameCharacters()
+        
+        self.htmlPageTitle = htmlParser.getHtmlTitle(htmlSource: htmlSource)
         
         LogItemRepository.shared.addItem(item: LogItem(message:"Page title detected: \(htmlPageTitle)" ))
         

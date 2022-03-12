@@ -9,4 +9,5 @@ protocol  HHGalleryAnalyserDelegateProtocol
 {
     func galleryAnalysingCompleted(downloadItemsArray:[FileDownloadItem])
     func galleryAnalyserStatusMessage(message:String)
+    
 }

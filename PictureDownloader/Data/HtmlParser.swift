@@ -100,6 +100,15 @@ public class HtmlParser: NSObject
         return source
     }
     
+    public func getHtmlTitle(htmlSource:String) -> String
+    {
+        var title = cutStringBetween(sourceParam: htmlSource, startString: "<title", endString: "</title>")
+        title = title.substringRightOf(searchString: ">")
+        title = title.fixEncoding()
+        title = title.removeInvalidFilenameCharacters()
+        return title
+    }
+    
     public func cutStringBetween(sourceParam:String, startString:String, endString:String) -> (String)
     {
         var source = sourceParam
@@ -123,7 +132,6 @@ public class HtmlParser: NSObject
     func getLinkToFollowupPage(sourceParam:String) -> (String)
     {
         var followUpLink = ""
-        
         if sourceParam.contains(parseInfo.followupPageIdentifier)
         {
             if let closure = parseInfo.followUpClosure
@@ -131,7 +139,6 @@ public class HtmlParser: NSObject
                     followUpLink = closure(sourceParam)
             }
         }
-        
         return followUpLink
     }
 }
