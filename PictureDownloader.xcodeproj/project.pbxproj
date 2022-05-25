@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */; };
+		3F2456DD283E8F8A0028A30A /* Hinzberg.Swift.Foundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */; };
 		3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */; };
 		3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42B7256681D400E4DC1B /* MainView.swift */; };
 		3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BB2566857400E4DC1B /* SettingsView.swift */; };
@@ -27,7 +28,6 @@
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
 		3F7E037425641F59008D948C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037325641F59008D948C /* Preview Assets.xcassets */; };
 		3F7E038E25641F8F008D948C /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038225641F8F008D948C /* FileDownloader.swift */; };
-		3F7E039025641F8F008D948C /* String + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038425641F8F008D948C /* String + Helper.swift */; };
 		3F7E039125641F8F008D948C /* HHGalleryAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */; };
 		3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */; };
 		3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038725641F8F008D948C /* HtmlParser.swift */; };
@@ -72,7 +72,6 @@
 		3F7E037525641F59008D948C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7E037625641F59008D948C /* PictureDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PictureDownloader.entitlements; sourceTree = "<group>"; };
 		3F7E038225641F8F008D948C /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
-		3F7E038425641F8F008D948C /* String + Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Helper.swift"; sourceTree = "<group>"; };
 		3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHGalleryAnalyser.swift; sourceTree = "<group>"; };
 		3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardUrlGetter.swift; sourceTree = "<group>"; };
 		3F7E038725641F8F008D948C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2456DD283E8F8A0028A30A /* Hinzberg.Swift.Foundation in Frameworks */,
 				3FA4B3E027936B6F0034524B /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +208,6 @@
 		3F8C8BF725705155002E01F2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				3F7E038425641F8F008D948C /* String + Helper.swift */,
 				3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */,
 				3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */,
 				3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */,
@@ -256,6 +255,7 @@
 			name = "Picture Downloader";
 			packageProductDependencies = (
 				3FA4B3DF27936B6F0034524B /* WrappingHStack */,
+				3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */,
 			);
 			productName = PictureDownloader;
 			productReference = 3F7E036925641F59008D948C /* Picture Downloader.app */;
@@ -286,6 +286,7 @@
 			mainGroup = 3F7E036025641F59008D948C;
 			packageReferences = (
 				3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */,
 			);
 			productRefGroup = 3F7E036A25641F59008D948C /* Products */;
 			projectDirPath = "";
@@ -346,7 +347,6 @@
 				3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */,
 				3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */,
 				3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */,
-				3F7E039025641F8F008D948C /* String + Helper.swift in Sources */,
 				3F7E039D25641F99008D948C /* WebsiteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +543,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaCoding/Hinzberg.Swift.Foundation.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -554,6 +562,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */;
+			productName = Hinzberg.Swift.Foundation;
+		};
 		3FA4B3DF27936B6F0034524B /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */;

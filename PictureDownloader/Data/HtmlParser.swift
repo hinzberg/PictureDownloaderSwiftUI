@@ -4,6 +4,7 @@
 //  Copyright (c) 2014 Holger Hinzberg. All rights reserved.
 
 import Cocoa
+import Hinzberg_Swift_Foundation
 
 public class HtmlParser: NSObject
 {
@@ -28,13 +29,12 @@ public class HtmlParser: NSObject
                 imageArray.append(imageLink!)
             }
             
-            // den Bekannten ImageLink aus dem Code entfernen
-            source = self.getSourceAfterImageLink(sourceParam: source, imageLink: imageLink!)
+            // remove found ImageLink from HTML source code
+            source = source.substringAfter(searchString: imageLink!)
             imageLink = self.getNextImageLink(sourceParam: source)
         }
       
-        // An die Bilder URLs zusätzlich einen Prefix
-        // anhängen, wenn nötig
+        // Add a prefix to the image URLs if neccessary
         if  parseInfo.imageUrlAdditionalPrefix != ""
         {
             var modifiedImageArray = [String]()
@@ -47,30 +47,17 @@ public class HtmlParser: NSObject
         
         return imageArray
     }
-    
-    private func getSourceAfterImageLink(sourceParam:String, imageLink:String) -> (String)
-    {
-        var source = sourceParam
-        // den Bekannten ImageLink aus dem Code entfernen
-        if imageLink != ""
-        {
-            source = source.substringRightOf(searchString: imageLink)
-        }
-        return source
-    }
-    
+        
     private func getNextImageLink(sourceParam:String) -> (String?)
     {
         var source = sourceParam
         
-        // Anfang abschneiden
+        // Cut at start
         for text in parseInfo.startStrings
         {
-            let theRange = source.range(of: text, options: NSString.CompareOptions.caseInsensitive)
-            if theRange != nil
+            if  source.caseInsensitiveContains(searchString: text)
             {
-                //source = source.substring(from: theRange!.lowerBound)
-                source = String(source[theRange!.lowerBound...])
+                source = source.substringAfterIncluding(searchString: text, options: NSString.CompareOptions.caseInsensitive)
             }
             else
             {
@@ -78,51 +65,44 @@ public class HtmlParser: NSObject
             }
         }
         
-        
-        // Ende abschneiden
+        // Cut at end
         for text in parseInfo.endStrings
         {
-            let theRange = source.range(of:text, options: NSString.CompareOptions.caseInsensitive)
-            if theRange != nil
+            if  source.caseInsensitiveContains(searchString: text)
             {
-                // source = source.substring(to: theRange!.lowerBound)
-                source  = String(source[..<theRange!.upperBound])
+                source = source.substringBeforeIncluding(searchString: text, options: NSString.CompareOptions.caseInsensitive)
             }
             else
             {
                 return nil;
             }
         }
-        
-        // Beliebige Anzahl von zeichem vom Start abscheiden
-        // Eigene Methode aus HHSStringHelper
-        source = source.substringRightFrom(characterCount: parseInfo.removeCharactersFromStart)
+
+        // Remove a given number of characters from the start
+        // This can be neccessary if there is no other way to identify an URL
+        source = source.substringRightAfter(characterCount: parseInfo.removeCharactersFromStart)
         return source
     }
     
     public func getHtmlTitle(htmlSource:String) -> String
     {
-        var title = cutStringBetween(sourceParam: htmlSource, startString: "<title", endString: "</title>")
-        title = title.substringRightOf(searchString: ">")
+        var title = getSubstringBetween(sourceParam: htmlSource, startString: "<title", endString: "</title>")
+        title = title.substringAfter(searchString: ">")
         title = title.fixEncoding()
         title = title.removeInvalidFilenameCharacters()
         return title
     }
     
-    public func cutStringBetween(sourceParam:String, startString:String, endString:String) -> (String)
+    private func getSubstringBetween(sourceParam:String, startString:String, endString:String) -> (String)
     {
         var source = sourceParam
         
-        let startRange = source.range(of: startString, options: NSString.CompareOptions.caseInsensitive)
-        if startRange != nil
+        if source.caseInsensitiveContains(searchString: startString)
         {
-            //source = source.substring(from: startRange!.upperBound)
-            source = String(source[startRange!.upperBound...])
-            let endRange = source.range(of: endString, options: NSString.CompareOptions.caseInsensitive)
-            if endRange != nil
+            source = source.substringAfter(searchString: startString)
+            if source.caseInsensitiveContains(searchString: endString)
             {
-                //source = source.substring(to: endRange!.lowerBound)
-                source  = String(source[..<endRange!.lowerBound])
+                source = source.substringBefore(searchString: endString)
                 return source
             }
         }

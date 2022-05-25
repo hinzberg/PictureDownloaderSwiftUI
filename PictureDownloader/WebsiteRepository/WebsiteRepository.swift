@@ -22,6 +22,7 @@ class WebsiteRepository
         item.websideParseInformation.append(ident)
         websites.append(item)
         
+        
         item = WebsiteRepositoryItem()
         item.websiteIdentification = "https://www.erocurves.com/";
         ident = WebsiteParseInformation()
@@ -86,26 +87,6 @@ class WebsiteRepository
         ident.addCharactersAtEnd = 5
         item.websideParseInformation.append(ident)
         websites.append(item)
-
-   
-        //        item = WebsiteRepositoryItem()
-        //        item.identification = "https://octokuro.com/gallery/";
-        //        item.startStrings.append("href=\"/images/previews/")
-        //        item.endStrings.append(".jpg")
-        //        item.filetypeString = ".jpg"
-        //        item.removeCharactersFromStart = 6
-        //        item.addCharactersAtEnd = 4
-        //        item.imageUrlAdditionalPrefix = "https://octokuro.com"
-        //        websites.append(item)
-        
-        //        item = WebsiteRepositoryItem()
-        //        item.identification = "http://www.centerfoldlist.com/feed/";
-        //        item.startStrings.append("href=\'http://www.centerfoldlist.com/galleries")
-        //        item.endStrings.append(".jpg")
-        //        item.filetypeString = ".jpg"
-        //        item.removeCharactersFromStart = 6
-        //        item.addCharactersAtEnd = 4
-        //        websites.append(item)
         
         item = WebsiteRepositoryItem()
         item.websiteIdentification = "http://www.babehub.com"
@@ -192,7 +173,7 @@ class WebsiteRepository
         for  item in self.websites
         {
             print("Checking WebsiteRepositoryItem: \(item.websiteIdentification)")
-            if htmlSource.caseInsensitiveContains(substring: item.websiteIdentification)
+            if htmlSource.caseInsensitiveContains(searchString:  item.websiteIdentification)
             {
                 print("Match WebsiteRepositoryItem: \(item.websiteIdentification)")
                 return item;
@@ -213,7 +194,7 @@ class WebsiteRepository
         {
             print("Checking WebsiteParseInformation: \(info.parseIdentification)")
             
-            if htmlSource.caseInsensitiveContains(substring: info.parseIdentification)
+            if htmlSource.caseInsensitiveContains(searchString: info.parseIdentification)
             {
                 print("Match WebsiteParseInformation: \(info.parseIdentification)")
                 return info;

@@ -1,5 +1,9 @@
 #  Picture Downloader
 
+**2022-05-25**
+- ***Hinzberg.Swift.Foundation*** package added
+- String Helper extensions removed
+
 **2022-03-12**
 - Title of analyed web page is shown in the Notificfation
 - New Source added to Website Repository
