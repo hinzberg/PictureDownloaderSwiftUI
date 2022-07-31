@@ -6,8 +6,7 @@ import Foundation
 
 public class FileDownloadItem: NSObject, Identifiable
 {
-    public override init() {
-        
+    public override init() {        
     }
     
     public var id = UUID()

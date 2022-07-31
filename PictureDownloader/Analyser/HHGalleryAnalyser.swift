@@ -65,6 +65,28 @@ class HHGalleryAnalyser: NSObject
     
     internal func downloadHtmlCompleted(htmlSource: String)
     {
+        if htmlSource.isEmpty {
+            if self.showNotifications {
+                HHNotificationCenter.shared.addSimpleAlarmNotification(title: "Error", body: "No valid HTML source could be found on loaded URL")
+            }
+            LogItemRepository.shared.addItem(item: LogItem(message: "No valid HTML source could be found on loaded URL", priority: .Exclamation))
+        }
+        
+        let parseInstruction = HTMLParserInstructionRepository.babesourceParserInstruction()
+        let parser = HTMLParser()
+        let result : HTMLParserResult = parser.Parse(instruction: parseInstruction, htmlSource: htmlSource)
+        
+        print(result.Title)
+        
+        createDownloadItems(result: result)
+        
+        if let delegate = self.delegate {
+            delegate.galleryAnalysingCompleted(downloadItemsArray: self.downloadItemsArray)
+        }
+        
+        // end of new code
+        return
+        
         // Html source of url was loaded
         if htmlSource.isEmpty
         {
@@ -171,6 +193,21 @@ class HHGalleryAnalyser: NSObject
         return linkToFollowupPage
     }
     
+    private func createDownloadItems( result : HTMLParserResult) {
+        LogItemRepository.shared.addItem(item: LogItem(message: "\(result.Links.count) image links found"))
+        for  imageLink in result.Links
+        {
+            let number = self.downloadItemsArray.count + 1;
+            let downloadItem = FileDownloadItem()
+            downloadItem.isActiveForDownload = true
+            downloadItem.webSourceUrl = imageLink
+            downloadItem.localTargetFilename = "\(result.Title) \(number)"
+            downloadItem.localTargetFileExtension = ".jpg"
+            downloadItem.localTargetFolder = self.downloadFolder
+            downloadItemsArray.append(downloadItem)
+        }
+    }
+        
     private func createDownloadItems(pageTitle:String, imageLinkArray:[String]) -> ()
     {
         LogItemRepository.shared.addItem(item: LogItem(message: "\(imageLinkArray.count) image links found"))

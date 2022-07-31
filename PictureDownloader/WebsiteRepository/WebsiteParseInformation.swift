@@ -25,8 +25,6 @@ class WebsiteParseInformation {
 
     var followupPageIdentifier = ""
     var followUpClosure:StringTypeClosure? = nil
-    
-    
 }
 
 
