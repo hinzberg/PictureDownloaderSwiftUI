@@ -15,26 +15,19 @@ struct PictureDownloaderApp: App {
         WindowGroup {
             NavigationView {
                 SidebarView()
-//                    .toolbar {
-//                        ToolbarItem(placement: .navigation) {
-//                            Button(action: {
-//                                ToggleSidebar()
-//                            }) { Image(systemName: "sidebar.left") }
-//                        }
-//                    }
                 DownloadQueView()
             }
-            .toolbar {
-                
-                ToolbarItem (placement: .navigation) {
-                    Button(action: self.ToggleSidebar, label: {
-                        Image(systemName: "sidebar.left").font(.headline)
-                    })}
-                                
-                ToolbarItem (placement: .primaryAction) {
-                    Button(action: self.downloadAction, label: {
-                        Image(systemName: "square.and.arrow.down.fill").font(.headline)
-                    })}
+            .toolbar (id: "main") {
+                ToolbarItem(id: "files", placement: .navigation) {
+                    Button(action: self.ToggleSidebar) {
+                        Label("Sidebar", systemImage: "sidebar.left")
+                    }
+                }
+                ToolbarItem(id: "cleanup") {
+                    Button(action: self.downloadAction) {
+                            Label("Download", systemImage: "square.and.arrow.down.fill")
+                    }
+                }
             }
             .environmentObject(controller)
             .environmentObject(downloadItemRepository)

@@ -12,7 +12,6 @@ struct MainView: View {
         
         NavigationView {
             List() {
-                
                 NavigationLink(destination: self.downloadView()) {
                     Label("Download Que", systemImage: "list.dash")}
                 
@@ -26,22 +25,21 @@ struct MainView: View {
             .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, maxHeight: .infinity)
             
             self.downloadView()
-
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
+        /*
         .toolbar {
-            ToolbarItem(placement: .navigation){
+            ToolbarItem(id: "sidebar",  placement: .navigation){
                 Button(action: toggleSidebar, label: {
                         Image(systemName: "sidebar.left").font(.headline) })
             }
             
-            ToolbarItem{
+            /*
+            ToolbarItem(id: "download")  {
                 Button(action: self.downloadAction, label: {
                     Image(systemName: "square.and.arrow.down.fill").font(.headline)
                 })
             }
-            ToolbarItem{
+            ToolbarItem(id: "preview") {
                 Button(action: self.previewAction, label: {
                     Image(systemName: "square.grid.2x2.fill").font(.headline)
                 })
@@ -51,7 +49,9 @@ struct MainView: View {
                     Image(systemName: "gearshape.fill").font(.headline)
                 })
             }
+            */
         }
+        */
     }
     
     func downloadView () -> some View {
