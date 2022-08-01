@@ -1,7 +1,7 @@
 timerTick
 Analyse PasteboardURL
     
-[HHGalleryAnalyser]
+[WebsiteGalleryAnalyser]
 analyseGallery
 validateAndPrepareDownload
        [HtmlDownloader] downloadAsync
