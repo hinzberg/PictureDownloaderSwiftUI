@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol  HHGalleryAnalyserDelegateProtocol
+protocol  WebsiteGalleryAnalyserDelegateProtocol
 {
     func galleryAnalysingCompleted(downloadItemsArray:[FileDownloadItem])
     func galleryAnalyserStatusMessage(message:String)

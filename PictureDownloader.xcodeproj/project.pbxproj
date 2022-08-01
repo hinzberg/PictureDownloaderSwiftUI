@@ -28,14 +28,14 @@
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
 		3F7E037425641F59008D948C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037325641F59008D948C /* Preview Assets.xcassets */; };
 		3F7E038E25641F8F008D948C /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038225641F8F008D948C /* FileDownloader.swift */; };
-		3F7E039125641F8F008D948C /* HHGalleryAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */; };
+		3F7E039125641F8F008D948C /* WebsiteGalleryAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038525641F8F008D948C /* WebsiteGalleryAnalyser.swift */; };
 		3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */; };
 		3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038725641F8F008D948C /* HtmlParser.swift */; };
 		3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */; };
 		3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */; };
 		3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038B25641F8F008D948C /* FileDownloadItem.swift */; };
 		3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */; };
-		3F7E039825641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038D25641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift */; };
+		3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038D25641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift */; };
 		3F7E039D25641F99008D948C /* WebsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039B25641F99008D948C /* WebsiteRepository.swift */; };
 		3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039C25641F99008D948C /* WebsiteRepositoryItem.swift */; };
 		3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E03A4256427FE008D948C /* AppDelegate.swift */; };
@@ -77,14 +77,14 @@
 		3F7E037525641F59008D948C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7E037625641F59008D948C /* PictureDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PictureDownloader.entitlements; sourceTree = "<group>"; };
 		3F7E038225641F8F008D948C /* FileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
-		3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHGalleryAnalyser.swift; sourceTree = "<group>"; };
+		3F7E038525641F8F008D948C /* WebsiteGalleryAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteGalleryAnalyser.swift; sourceTree = "<group>"; };
 		3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardUrlGetter.swift; sourceTree = "<group>"; };
 		3F7E038725641F8F008D948C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloaderDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRepository.swift; sourceTree = "<group>"; };
 		3F7E038B25641F8F008D948C /* FileDownloadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadItem.swift; sourceTree = "<group>"; };
 		3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRowView.swift; sourceTree = "<group>"; };
-		3F7E038D25641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHGalleryAnalyserDelegateProtocol.swift; sourceTree = "<group>"; };
+		3F7E038D25641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteGalleryAnalyserDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F7E039B25641F99008D948C /* WebsiteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRepository.swift; sourceTree = "<group>"; };
 		3F7E039C25641F99008D948C /* WebsiteRepositoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRepositoryItem.swift; sourceTree = "<group>"; };
 		3F7E03A4256427FE008D948C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				3F696F4926068F92000AD9A8 /* SidebarView.swift */,
 				3F7E03A4256427FE008D948C /* AppDelegate.swift */,
 				3F40CACB25801734009834FB /* Logging */,
-				3F8C8BF9257051A9002E01F2 /* Analyser */,
+				3F8C8BF9257051A9002E01F2 /* WebsiteAnalyser */,
 				3F8C8BF82570517A002E01F2 /* Downloader */,
 				3F8C8BF725705155002E01F2 /* Helper */,
 				3F4B62F62566D20A00C3CF4C /* SubViews */,
@@ -240,13 +240,13 @@
 			path = Downloader;
 			sourceTree = "<group>";
 		};
-		3F8C8BF9257051A9002E01F2 /* Analyser */ = {
+		3F8C8BF9257051A9002E01F2 /* WebsiteAnalyser */ = {
 			isa = PBXGroup;
 			children = (
-				3F7E038525641F8F008D948C /* HHGalleryAnalyser.swift */,
-				3F7E038D25641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift */,
+				3F7E038525641F8F008D948C /* WebsiteGalleryAnalyser.swift */,
+				3F7E038D25641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift */,
 			);
-			path = Analyser;
+			path = WebsiteAnalyser;
 			sourceTree = "<group>";
 		};
 		3FDA268C28970B2E001DC1DA /* HTML Parsing */ = {
@@ -349,7 +349,7 @@
 				3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */,
 				3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */,
 				3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */,
-				3F7E039825641F8F008D948C /* HHGalleryAnalyserDelegateProtocol.swift in Sources */,
+				3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */,
 				3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */,
 				3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */,
 				3FDA26942897140F001DC1DA /* String + Helper.swift in Sources */,
@@ -365,7 +365,7 @@
 				3FDA269628971763001DC1DA /* HTMLParserInstruction.swift in Sources */,
 				3F40CAD0258017AA009834FB /* LogItemRepository.swift in Sources */,
 				3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */,
-				3F7E039125641F8F008D948C /* HHGalleryAnalyser.swift in Sources */,
+				3F7E039125641F8F008D948C /* WebsiteGalleryAnalyser.swift in Sources */,
 				3F2F42BF256685C600E4DC1B /* DownloadQueView.swift in Sources */,
 				3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */,
 				3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */,

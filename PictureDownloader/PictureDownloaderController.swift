@@ -4,12 +4,12 @@
 
 import SwiftUI
 
-public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, FileDownloaderDelegateProtocol, ObservableObject
+public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtocol, FileDownloaderDelegateProtocol, ObservableObject
 {
     var downloadItemRepository = HHDownloadItemRepository.shared;
     var lastPasteboardUrl : String = ""
     var urlGetter = PasteboardUrlGetter()
-    var galleryAnalyser = HHGalleryAnalyser()
+    var galleryAnalyser = WebsiteGalleryAnalyser()
     var fileDownloader = FileDownloader()
     var timer : Timer?
     @Published var activeItemName = ""
@@ -47,8 +47,11 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
    
         var currentPasteboardUrl = ""
         // For Debug
-       currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html";
-        // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
+         // currentPasteboardUrl = "https://cosplaythots.com/p/69034"
+        //currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html"
+        //currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
+       
+        
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
@@ -59,8 +62,7 @@ public class PictureDownloaderController : HHGalleryAnalyserDelegateProtocol, Fi
         // currentPasteboardUrl = "https://drommgirls.com/evelyn-beauty-on-top/"
         
         // Get the current Url from the pasteboard
-        if currentPasteboardUrl == ""
-        {
+        if currentPasteboardUrl == ""  {
             currentPasteboardUrl = self.urlGetter.getPastboardUrl()
         }
         

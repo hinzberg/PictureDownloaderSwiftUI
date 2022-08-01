@@ -10,7 +10,7 @@ public class HTMLParser
     {
         let result = HTMLParserResult()
         
-        if let titleParse = instruction.titleParseInstrution {
+        if let titleParse = instruction.titleParseInstruction {
             result.Title = titleParse(htmlSource)
         }
         

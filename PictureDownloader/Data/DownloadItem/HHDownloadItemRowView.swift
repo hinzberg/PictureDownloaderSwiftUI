@@ -10,13 +10,30 @@ struct HHDownloadItemRowView: View {
     
     var body: some View {
         VStack{
-            //Text("\(item.localTargetFilename)").font(.largeTitle)
-            
-            Text("\(item.localTargetFilename)\(item.localTargetFileExtension)").font(.headline).foregroundColor(Color.primary)
+            Text("\(item.localTargetFilename)\(item.localTargetFileExtension)")
+                .font(.headline).foregroundColor(Color.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text(item.webSourceUrl).font(.subheadline).foregroundColor(Color.secondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                Text("From: ")
+                    .font(.subheadline)
+                    .foregroundColor(Color.secondary)
+                    .frame(width: 40, alignment: .leading)
+                Text(item.webSourceUrl)
+                    .font(.subheadline)
+                    .foregroundColor(Color.secondary)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            
+            HStack {
+                Text("To: ")
+                    .font(.subheadline)
+                    .foregroundColor(Color.secondary)
+                    .frame(width: 40, alignment: .leading)
+                Text(item.localTargetFullPathWithFile)
+                    .font(.subheadline)
+                    .foregroundColor(Color.secondary)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            
         }.padding(5)
     }
 }
