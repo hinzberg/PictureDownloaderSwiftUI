@@ -47,11 +47,9 @@ public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtoco
    
         var currentPasteboardUrl = ""
         // For Debug
-         // currentPasteboardUrl = "https://cosplaythots.com/p/69034"
+        // currentPasteboardUrl = "https://cosplaythots.com/p/69034"
         //currentPasteboardUrl = "https://babesource.com/galleries/blake-blossom-brazzers-exxtra-97140.html"
-        //currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
-       
-        
+        // currentPasteboardUrl = "https://www.hqbabes.com/Bexie+Williams+-+All-around+Ravishing-406169/?t=p3"
         //currentPasteboardUrl = "https://vi.hentai-cosplay.com/image/nonsummerjack-non-my-god-anubis/"
         //currentPasteboardUrl = "https://vi.hentai-cosplays.com/image/qqueen-bremerton-2/"
         // currentPasteboardUrl = "https://www.elitebabes.com/super-sweet-blue-eyed-doll-erotically-poses-her-nubile-body-by-the-window-46313/"
@@ -78,7 +76,7 @@ public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtoco
     
     func galleryAnalysingCompleted(downloadItemsArray: [FileDownloadItem])
     {
-        self.downloadItemRepository.addItems(itemsArray: downloadItemsArray)
+        self.downloadItemRepository.addMany(items: downloadItemsArray)
         self.showBadgeCount()
     }
     

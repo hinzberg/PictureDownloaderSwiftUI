@@ -7,11 +7,8 @@
 
 import SwiftUI
 
-struct SidebarView: View {
-    
-    @EnvironmentObject var controller : PictureDownloaderController
-    @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
-    
+struct SidebarView: View
+{
     var body: some View {
         List {
             NavigationLink(destination: DownloadQueView()) {

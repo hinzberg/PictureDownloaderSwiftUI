@@ -3,10 +3,64 @@
 //  Created by Holger Hinzberg on 05.07.20.
 
 import SwiftUI
+import Hinzberg_Foundation
 
-public class HHDownloadItemRepository: ObservableObject, IRepositoryProtocol {
-
-    typealias T = FileDownloadItem
+public class HHDownloadItemRepository: ObservableObject, RepositoryProtocol {
+    
+    public func getCount() -> Int {
+        return itemsToDownload.count
+    }
+    
+    public func add(item: FileDownloadItem)
+    {
+        if self.appendSequentialNumber {
+            item.localTargetFilename = "\(item.localTargetFilename) (\(self.sequentialNumber))"
+            sequentialNumber = sequentialNumber + 1
+        }
+        else {
+            self.createUnqiueFilename(checkItem: item)
+        }
+        
+        itemsToDownload.append(item)
+        self.updateItemsCountText()
+    }
+    
+    public func addMany(items: [FileDownloadItem])
+    {
+        for item in items {
+            self.add(item: item)
+        }
+    }
+    
+    public func remove(item: FileDownloadItem)
+    {
+        itemsToDownload.removeAll { value in
+            return value.id == item.id
+        }
+        self.updateItemsCountText()
+    }
+    
+    public func removeMany(items: [FileDownloadItem]) {
+        return
+    }
+    
+    public func getAll() -> [FileDownloadItem] {
+        return itemsToDownload
+    }
+    
+    public func get(id: UUID) -> FileDownloadItem? {
+        return nil
+    }
+    
+    public func clear()
+    {
+        itemsDownloaded.removeAll()
+        itemsToDownload.removeAll()
+        self.updateItemsCountText()
+    }
+        
+    public typealias RepositoryType = FileDownloadItem
+    
     static let shared = HHDownloadItemRepository()
     
     private init() {
@@ -20,49 +74,16 @@ public class HHDownloadItemRepository: ObservableObject, IRepositoryProtocol {
     @Published var itemsDownloadedCountText = ""
     @Published var itemsToDownload = [FileDownloadItem]()
     @Published var itemsToDownloadCountText = ""
-    
-    func getItemCount() -> Int {
-        return itemsToDownload.count
-    }
-    
+        
     func removeAllItems() {
         itemsDownloaded.removeAll()
         itemsToDownload.removeAll()
         self.updateItemsCountText()
     }
     
-    func addItem(item: FileDownloadItem)
-    {
-        if self.appendSequentialNumber {
-            item.localTargetFilename = "\(item.localTargetFilename) (\(self.sequentialNumber))"
-            sequentialNumber = sequentialNumber + 1
-        }
-        else {
-            self.createUnqiueFilename(checkItem: item)
-        }
-        
-        itemsToDownload.append(item)
-        self.updateItemsCountText()
-   }
-    
-    func addItems(itemsArray: [FileDownloadItem])
-    {
-        for item in itemsArray {
-            self.addItem(item: item)
-        }
-   }
-    
-    func removeItem(item: FileDownloadItem)
-    {
-        itemsToDownload.removeAll { value in
-            return value.id == item.id
-        }
-        self.updateItemsCountText()
-   }
-    
     func moveItemToDownloaded(item : FileDownloadItem )
     {
-        let items = itemsToDownload.all(where: { $0.id == item.id })
+        let items = itemsToDownload.allMatching(where: { $0.id == item.id })
         itemsDownloaded.append(contentsOf: items)
          
         itemsToDownload.removeAll { value in
@@ -84,16 +105,16 @@ public class HHDownloadItemRepository: ObservableObject, IRepositoryProtocol {
         }
     }
 
-    private func updateItemsCountText() {
-        
+    private func updateItemsCountText()
+    {
         self.itemsDownloadedCountText = "\(self.itemsDownloaded.count)"
         
         if self.itemsToDownload.count == 0 {
-            self.itemsToDownloadCountText = "Keine Bilder in der Warteschlange";
+            self.itemsToDownloadCountText = "No images in queue";
         } else if self.itemsToDownload.count > 1 {
-            self.itemsToDownloadCountText = "\(self.itemsToDownload.count) Bilder in der Warteschlage"
+            self.itemsToDownloadCountText = "\(self.itemsToDownload.count) images in queue"
         } else {
-        self.itemsToDownloadCountText = "Ein Bild in der Warteschlage"
+        self.itemsToDownloadCountText = "One image in queue"
         }
     }
 }

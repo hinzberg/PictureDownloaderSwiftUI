@@ -25,33 +25,7 @@ struct MainView: View {
             .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, maxHeight: .infinity)
             
             self.downloadView()
-        }
-        /*
-        .toolbar {
-            ToolbarItem(id: "sidebar",  placement: .navigation){
-                Button(action: toggleSidebar, label: {
-                        Image(systemName: "sidebar.left").font(.headline) })
-            }
-            
-            /*
-            ToolbarItem(id: "download")  {
-                Button(action: self.downloadAction, label: {
-                    Image(systemName: "square.and.arrow.down.fill").font(.headline)
-                })
-            }
-            ToolbarItem(id: "preview") {
-                Button(action: self.previewAction, label: {
-                    Image(systemName: "square.grid.2x2.fill").font(.headline)
-                })
-            }
-            ToolbarItem {
-                Button(action: self.settingsAction, label: {
-                    Image(systemName: "gearshape.fill").font(.headline)
-                })
-            }
-            */
-        }
-        */
+        }        
     }
     
     func downloadView () -> some View {

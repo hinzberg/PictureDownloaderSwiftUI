@@ -17,6 +17,7 @@ struct PictureDownloaderApp: App {
                 SidebarView()
                 DownloadQueView()
             }
+            .navigationTitle(getWindowTitle())
             .toolbar (id: "main") {
                 ToolbarItem(id: "files", placement: .navigation) {
                     Button(action: self.ToggleSidebar) {
@@ -35,6 +36,12 @@ struct PictureDownloaderApp: App {
         //.windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
         //.windowStyle(HiddenTitleBarWindowStyle())
     }
+    
+    func getWindowTitle() -> String
+    {
+        return "Picture Downloader - Version \(Bundle.main.releaseVersionNumber)" 
+    }
+    
     
     func ToggleSidebar() {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)

@@ -7,7 +7,8 @@ import UserNotifications
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_ notification: Notification)
+    {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {

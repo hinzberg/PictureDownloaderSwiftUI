@@ -4,7 +4,7 @@
 //  Copyright (c) 2014 Holger Hinzberg. All rights reserved.
 
 import Cocoa
-import Hinzberg_Swift_Foundation
+import Hinzberg_Foundation
 
 public class HtmlParser: NSObject
 {

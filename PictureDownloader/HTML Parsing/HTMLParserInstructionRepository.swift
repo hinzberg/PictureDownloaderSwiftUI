@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Hinzberg_Foundation
 
 public class HTMLParserInstructionRepository
 {

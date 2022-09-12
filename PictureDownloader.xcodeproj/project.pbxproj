@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */; };
-		3F2456DD283E8F8A0028A30A /* Hinzberg.Swift.Foundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */; };
 		3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */; };
 		3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42B7256681D400E4DC1B /* MainView.swift */; };
 		3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BB2566857400E4DC1B /* SettingsView.swift */; };
@@ -22,7 +21,6 @@
 		3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4926068F92000AD9A8 /* SidebarView.swift */; };
 		3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4E26069158000AD9A8 /* DownloadView.swift */; };
 		3F6FA6B6274D8FC4008FF87C /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */; };
-		3F6FA6B8274D9421008FF87C /* Array + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FA6B7274D9421008FF87C /* Array + Helper.swift */; };
 		3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */; };
 		3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */; };
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
@@ -40,13 +38,13 @@
 		3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039C25641F99008D948C /* WebsiteRepositoryItem.swift */; };
 		3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E03A4256427FE008D948C /* AppDelegate.swift */; };
 		3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */; };
+		3F980E9E28CF002C006893CB /* Hinzberg-Foundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3F980E9D28CF002C006893CB /* Hinzberg-Foundation */; };
 		3FA4B3E027936B6F0034524B /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 3FA4B3DF27936B6F0034524B /* WrappingHStack */; };
 		3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */; };
 		3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */; };
 		3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */; };
 		3FDA268E28970B67001DC1DA /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA268D28970B67001DC1DA /* HTMLParser.swift */; };
 		3FDA269228970BEC001DC1DA /* HTMLParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA269128970BEC001DC1DA /* HTMLParserResult.swift */; };
-		3FDA26942897140F001DC1DA /* String + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA26932897140F001DC1DA /* String + Helper.swift */; };
 		3FDA269628971763001DC1DA /* HTMLParserInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA269528971763001DC1DA /* HTMLParserInstruction.swift */; };
 		3FDA269828971C8A001DC1DA /* HTMLParserInstructionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA269728971C8A001DC1DA /* HTMLParserInstructionRepository.swift */; };
 		3FF5C377274ED42B001BC49E /* GalleryPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */; };
@@ -68,7 +66,6 @@
 		3F696F4E26069158000AD9A8 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		3F6FA6B4274D8C5C008FF87C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
-		3F6FA6B7274D9421008FF87C /* Array + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Helper.swift"; sourceTree = "<group>"; };
 		3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSound + Extension.swift"; sourceTree = "<group>"; };
 		3F7E036925641F59008D948C /* Picture Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Downloader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDownloaderApp.swift; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkHandler.swift; sourceTree = "<group>"; };
 		3FDA268D28970B67001DC1DA /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		3FDA269128970BEC001DC1DA /* HTMLParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParserResult.swift; sourceTree = "<group>"; };
-		3FDA26932897140F001DC1DA /* String + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Helper.swift"; sourceTree = "<group>"; };
 		3FDA269528971763001DC1DA /* HTMLParserInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParserInstruction.swift; sourceTree = "<group>"; };
 		3FDA269728971C8A001DC1DA /* HTMLParserInstructionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParserInstructionRepository.swift; sourceTree = "<group>"; };
 		3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPictureView.swift; sourceTree = "<group>"; };
@@ -105,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2456DD283E8F8A0028A30A /* Hinzberg.Swift.Foundation in Frameworks */,
+				3F980E9E28CF002C006893CB /* Hinzberg-Foundation in Frameworks */,
 				3FA4B3E027936B6F0034524B /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +219,6 @@
 				3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */,
 				3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */,
 				3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */,
-				3F6FA6B7274D9421008FF87C /* Array + Helper.swift */,
-				3FDA26932897140F001DC1DA /* String + Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -278,7 +272,7 @@
 			name = "Picture Downloader";
 			packageProductDependencies = (
 				3FA4B3DF27936B6F0034524B /* WrappingHStack */,
-				3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */,
+				3F980E9D28CF002C006893CB /* Hinzberg-Foundation */,
 			);
 			productName = PictureDownloader;
 			productReference = 3F7E036925641F59008D948C /* Picture Downloader.app */;
@@ -309,7 +303,7 @@
 			mainGroup = 3F7E036025641F59008D948C;
 			packageReferences = (
 				3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */,
-				3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */,
+				3F980E9C28CF002C006893CB /* XCRemoteSwiftPackageReference "Hinzberg-Foundation" */,
 			);
 			productRefGroup = 3F7E036A25641F59008D948C /* Products */;
 			projectDirPath = "";
@@ -352,7 +346,6 @@
 				3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */,
 				3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */,
 				3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */,
-				3FDA26942897140F001DC1DA /* String + Helper.swift in Sources */,
 				3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */,
 				3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */,
 				3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */,
@@ -370,7 +363,6 @@
 				3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */,
 				3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */,
 				3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */,
-				3F6FA6B8274D9421008FF87C /* Array + Helper.swift in Sources */,
 				3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */,
 				3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */,
 				3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */,
@@ -516,6 +508,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cocoa-coding.PictureDownloader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -541,6 +534,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cocoa-coding.PictureDownloader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -571,9 +565,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */ = {
+		3F980E9C28CF002C006893CB /* XCRemoteSwiftPackageReference "Hinzberg-Foundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CocoaCoding/Hinzberg.Swift.Foundation.git";
+			repositoryURL = "https://github.com/hinzberg/Hinzberg-Foundation";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -590,10 +584,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3F2456DC283E8F8A0028A30A /* Hinzberg.Swift.Foundation */ = {
+		3F980E9D28CF002C006893CB /* Hinzberg-Foundation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3F2456DB283E8F8A0028A30A /* XCRemoteSwiftPackageReference "Hinzberg.Swift.Foundation" */;
-			productName = Hinzberg.Swift.Foundation;
+			package = 3F980E9C28CF002C006893CB /* XCRemoteSwiftPackageReference "Hinzberg-Foundation" */;
+			productName = "Hinzberg-Foundation";
 		};
 		3FA4B3DF27936B6F0034524B /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;

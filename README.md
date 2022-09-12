@@ -1,5 +1,13 @@
 #  Picture Downloader
 
+**2022-09-12**
+- Added Swift Packages
+- Codecleanup
+- Translation
+
+**2022-08-01**
+- New Website Parsing Engine and Repository
+
 **2022-05-25**
 - ***Hinzberg.Swift.Foundation*** package added
 - String Helper extensions removed

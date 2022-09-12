@@ -16,21 +16,21 @@ struct HHDownloadItemRowView: View {
             
             HStack {
                 Text("From: ")
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundColor(Color.secondary)
                     .frame(width: 40, alignment: .leading)
                 Text(item.webSourceUrl)
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundColor(Color.secondary)
             }.frame(maxWidth: .infinity, alignment: .leading)
             
             HStack {
                 Text("To: ")
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundColor(Color.secondary)
                     .frame(width: 40, alignment: .leading)
                 Text(item.localTargetFullPathWithFile)
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundColor(Color.secondary)
             }.frame(maxWidth: .infinity, alignment: .leading)
             
