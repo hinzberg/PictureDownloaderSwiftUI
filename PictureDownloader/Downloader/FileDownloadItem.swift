@@ -3,6 +3,7 @@
 //  Copyright © 2017 Holger Hinzberg. All rights reserved.
 
 import Foundation
+import Hinzberg_Foundation
 
 public class FileDownloadItem: BaseRepositoryItem
 {
@@ -11,6 +12,10 @@ public class FileDownloadItem: BaseRepositoryItem
     public var localTargetFolder:String = ""
     @Published var localTargetFilename:String = ""
     @Published var localTargetFileExtension:String = ""
+    
+    override init() {
+        
+    }
     
     public var localTargetFullPathWithFile : String {
         return "\(self.localTargetFolder)/\(self.localTargetFilename)\(self.localTargetFileExtension)"
