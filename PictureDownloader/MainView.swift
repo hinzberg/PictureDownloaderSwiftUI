@@ -32,6 +32,7 @@ struct MainView: View {
         VStack {
             DownloadQueView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
             Text("\(controller.activeItemName)")
                 .padding(EdgeInsets(top: 2, leading: 2, bottom: 10, trailing: 2))
         }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */; };
-		3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */; };
 		3F2F42B8256681D400E4DC1B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42B7256681D400E4DC1B /* MainView.swift */; };
 		3F2F42BC2566857400E4DC1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BB2566857400E4DC1B /* SettingsView.swift */; };
 		3F2F42BF256685C600E4DC1B /* DownloadQueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */; };
@@ -30,16 +29,19 @@
 		3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */; };
 		3F7E039325641F8F008D948C /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038725641F8F008D948C /* HtmlParser.swift */; };
 		3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */; };
-		3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */; };
+		3F7E039525641F8F008D948C /* FileDownloadItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038A25641F8F008D948C /* FileDownloadItemRepository.swift */; };
 		3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038B25641F8F008D948C /* FileDownloadItem.swift */; };
-		3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */; };
+		3F7E039725641F8F008D948C /* FileDownloadItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038C25641F8F008D948C /* FileDownloadItemRowView.swift */; };
 		3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E038D25641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift */; };
 		3F7E039D25641F99008D948C /* WebsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039B25641F99008D948C /* WebsiteRepository.swift */; };
 		3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E039C25641F99008D948C /* WebsiteRepositoryItem.swift */; };
 		3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E03A4256427FE008D948C /* AppDelegate.swift */; };
 		3F7F42BC257D808100301D2B /* HHNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */; };
 		3F980E9E28CF002C006893CB /* Hinzberg-Foundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3F980E9D28CF002C006893CB /* Hinzberg-Foundation */; };
+		3F9AB36F28EADAF000F802B1 /* BaseRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9AB36E28EADAF000F802B1 /* BaseRepositoryItem.swift */; };
+		3F9AB37228EAE19800F802B1 /* Hinzberg-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9AB37128EAE19800F802B1 /* Hinzberg-SwiftUI */; };
 		3FA4B3E027936B6F0034524B /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 3FA4B3DF27936B6F0034524B /* WrappingHStack */; };
+		3FD1CF2128E9F1F400AD475A /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1CF2028E9F1F400AD475A /* String+HTML.swift */; };
 		3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */; };
 		3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */; };
 		3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */; };
@@ -52,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		3F077C5125ED82CD0046ADC4 /* HtmlDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlDownloader.swift; sourceTree = "<group>"; };
-		3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3F2F42B7256681D400E4DC1B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F2F42BB2566857400E4DC1B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadQueView.swift; sourceTree = "<group>"; };
@@ -78,14 +79,16 @@
 		3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardUrlGetter.swift; sourceTree = "<group>"; };
 		3F7E038725641F8F008D948C /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		3F7E038825641F8F008D948C /* FileDownloaderDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloaderDelegateProtocol.swift; sourceTree = "<group>"; };
-		3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRepository.swift; sourceTree = "<group>"; };
+		3F7E038A25641F8F008D948C /* FileDownloadItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadItemRepository.swift; sourceTree = "<group>"; };
 		3F7E038B25641F8F008D948C /* FileDownloadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadItem.swift; sourceTree = "<group>"; };
-		3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHDownloadItemRowView.swift; sourceTree = "<group>"; };
+		3F7E038C25641F8F008D948C /* FileDownloadItemRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadItemRowView.swift; sourceTree = "<group>"; };
 		3F7E038D25641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteGalleryAnalyserDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F7E039B25641F99008D948C /* WebsiteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRepository.swift; sourceTree = "<group>"; };
 		3F7E039C25641F99008D948C /* WebsiteRepositoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRepositoryItem.swift; sourceTree = "<group>"; };
 		3F7E03A4256427FE008D948C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHNotificationCenter.swift; sourceTree = "<group>"; };
+		3F9AB36E28EADAF000F802B1 /* BaseRepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepositoryItem.swift; sourceTree = "<group>"; };
+		3FD1CF2028E9F1F400AD475A /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		3FD22FC7265B926500200390 /* WebsiteParseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteParseInformation.swift; sourceTree = "<group>"; };
 		3FD5335A257040F0002EE1E4 /* HHFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileHelper.swift; sourceTree = "<group>"; };
 		3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkHandler.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F980E9E28CF002C006893CB /* Hinzberg-Foundation in Frameworks */,
+				3F9AB37228EAE19800F802B1 /* Hinzberg-SwiftUI in Frameworks */,
 				3FA4B3E027936B6F0034524B /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +127,7 @@
 		3F4B62F62566D20A00C3CF4C /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				3F7E038C25641F8F008D948C /* FileDownloadItemRowView.swift */,
 				3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */,
 				3F2F42BB2566857400E4DC1B /* SettingsView.swift */,
 				3F696F4E26069158000AD9A8 /* DownloadView.swift */,
@@ -185,21 +190,12 @@
 		3F7E038125641F8F008D948C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3F7E038A25641F8F008D948C /* FileDownloadItemRepository.swift */,
 				3F7E038625641F8F008D948C /* PasteboardUrlGetter.swift */,
 				3F7E038725641F8F008D948C /* HtmlParser.swift */,
-				3F7E038925641F8F008D948C /* DownloadItem */,
+				3F9AB36E28EADAF000F802B1 /* BaseRepositoryItem.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		3F7E038925641F8F008D948C /* DownloadItem */ = {
-			isa = PBXGroup;
-			children = (
-				3F7E038A25641F8F008D948C /* HHDownloadItemRepository.swift */,
-				3F7E038C25641F8F008D948C /* HHDownloadItemRowView.swift */,
-				3F2AE10E2756C07E00B1FAC6 /* IRepositoryProtocol.swift */,
-			);
-			path = DownloadItem;
 			sourceTree = "<group>";
 		};
 		3F7E039A25641F99008D948C /* WebsiteRepository */ = {
@@ -219,6 +215,7 @@
 				3FD5335F257046EE002EE1E4 /* FileBookmarkHandler.swift */,
 				3F7F42BB257D808100301D2B /* HHNotificationCenter.swift */,
 				3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */,
+				3FD1CF2028E9F1F400AD475A /* String+HTML.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -273,6 +270,7 @@
 			packageProductDependencies = (
 				3FA4B3DF27936B6F0034524B /* WrappingHStack */,
 				3F980E9D28CF002C006893CB /* Hinzberg-Foundation */,
+				3F9AB37128EAE19800F802B1 /* Hinzberg-SwiftUI */,
 			);
 			productName = PictureDownloader;
 			productReference = 3F7E036925641F59008D948C /* Picture Downloader.app */;
@@ -304,6 +302,7 @@
 			packageReferences = (
 				3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				3F980E9C28CF002C006893CB /* XCRemoteSwiftPackageReference "Hinzberg-Foundation" */,
+				3F9AB37028EAE19800F802B1 /* XCRemoteSwiftPackageReference "Hinzberg-SwiftUI" */,
 			);
 			productRefGroup = 3F7E036A25641F59008D948C /* Products */;
 			projectDirPath = "";
@@ -332,8 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7E039725641F8F008D948C /* HHDownloadItemRowView.swift in Sources */,
-				3F2AE10F2756C07E00B1FAC6 /* IRepositoryProtocol.swift in Sources */,
+				3F7E039725641F8F008D948C /* FileDownloadItemRowView.swift in Sources */,
 				3FDA269228970BEC001DC1DA /* HTMLParserResult.swift in Sources */,
 				3F40CACD25801764009834FB /* LogItem.swift in Sources */,
 				3FF5C377274ED42B001BC49E /* GalleryPictureView.swift in Sources */,
@@ -344,7 +342,7 @@
 				3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */,
 				3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */,
 				3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */,
-				3F7E039525641F8F008D948C /* HHDownloadItemRepository.swift in Sources */,
+				3F7E039525641F8F008D948C /* FileDownloadItemRepository.swift in Sources */,
 				3F696F4C26069100000AD9A8 /* SidebarView.swift in Sources */,
 				3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */,
 				3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */,
@@ -354,6 +352,7 @@
 				3FDA269828971C8A001DC1DA /* HTMLParserInstructionRepository.swift in Sources */,
 				3F7E038E25641F8F008D948C /* FileDownloader.swift in Sources */,
 				3FDA268E28970B67001DC1DA /* HTMLParser.swift in Sources */,
+				3FD1CF2128E9F1F400AD475A /* String+HTML.swift in Sources */,
 				3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */,
 				3FDA269628971763001DC1DA /* HTMLParserInstruction.swift in Sources */,
 				3F40CAD0258017AA009834FB /* LogItemRepository.swift in Sources */,
@@ -365,6 +364,7 @@
 				3F7E039625641F8F008D948C /* FileDownloadItem.swift in Sources */,
 				3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */,
 				3FD53360257046EE002EE1E4 /* FileBookmarkHandler.swift in Sources */,
+				3F9AB36F28EADAF000F802B1 /* BaseRepositoryItem.swift in Sources */,
 				3FD22FC8265B926500200390 /* WebsiteParseInformation.swift in Sources */,
 				3F7E039225641F8F008D948C /* PasteboardUrlGetter.swift in Sources */,
 				3F7E039D25641F99008D948C /* WebsiteRepository.swift in Sources */,
@@ -573,6 +573,14 @@
 				kind = branch;
 			};
 		};
+		3F9AB37028EAE19800F802B1 /* XCRemoteSwiftPackageReference "Hinzberg-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hinzberg/Hinzberg-SwiftUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		3FA4B3DE27936B6F0034524B /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -588,6 +596,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F980E9C28CF002C006893CB /* XCRemoteSwiftPackageReference "Hinzberg-Foundation" */;
 			productName = "Hinzberg-Foundation";
+		};
+		3F9AB37128EAE19800F802B1 /* Hinzberg-SwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9AB37028EAE19800F802B1 /* XCRemoteSwiftPackageReference "Hinzberg-SwiftUI" */;
+			productName = "Hinzberg-SwiftUI";
 		};
 		3FA4B3DF27936B6F0034524B /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;

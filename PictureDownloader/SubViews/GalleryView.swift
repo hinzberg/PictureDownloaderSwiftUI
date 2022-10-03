@@ -7,7 +7,7 @@ import WrappingHStack
 
 struct GalleryView: View {
     
-    @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
+    @EnvironmentObject var downloadItemRepository : FileDownloadItemRepository
     @State private var pictureSize: Double = 200
     
     var columns: [GridItem] = [

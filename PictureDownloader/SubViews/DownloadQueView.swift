@@ -8,16 +8,17 @@ import SwiftUI
 struct DownloadQueView: View {
     
     @EnvironmentObject var controller : PictureDownloaderController
-    @EnvironmentObject var downloadItemRepository : HHDownloadItemRepository
+    @EnvironmentObject var downloadItemRepository : FileDownloadItemRepository
     
     var body: some View {
         VStack {
             VStack {
                 List {
                     ForEach (downloadItemRepository.itemsToDownload, id: \.id) { item in
-                        HHDownloadItemRowView(item: item)
-                    }
-                }
+                        FileDownloadItemRowView(item: item)
+                    }.listRowInsets(EdgeInsets())
+                }.listStyle(PlainListStyle())
+                
                 VStack{
                     Text("\(self.downloadItemRepository.itemsToDownloadCountText)")
                 }

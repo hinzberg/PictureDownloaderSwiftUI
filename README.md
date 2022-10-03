@@ -1,5 +1,15 @@
 #  Picture Downloader
 
+**2022-10-03**
+- Clipboard text not start with http are ignored for analyses
+- Background color for selected items in download que
+- Select all function in toolbar
+- Manual rename selected items in download que 
+
+**2022-10-02**
+- New Source added to Website Repository (xnutofuud)
+- Added String+HTML.swift
+
 **2022-09-12**
 - Added Swift Packages
 - Codecleanup
@@ -55,11 +65,4 @@
 **2020-12-22**
 - New Setting : Show Notifications
 
-**Current Sources**
-- babesource.com
-- babehub.com
-- pmatehunter.com
-- hqbabes.com
-- hqsluts.com
-- hentai-cosplays.com
-- erocurves.com
+

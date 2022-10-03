@@ -1,9 +1,6 @@
-//
 //  HTMLParserInstructionRepository.swift
 //  Picture Downloader
-//
 //  Created by Holger Hinzberg on 31.07.22.
-//
 
 import Foundation
 import Hinzberg_Foundation
@@ -16,6 +13,7 @@ public class HTMLParserInstructionRepository
         htmlParserInstructions.append( self.babesourceParserInstruction())
         htmlParserInstructions.append( self.cosplayThotsParserInstruction())
         htmlParserInstructions.append( self.hqBabesParserInstruction())
+        htmlParserInstructions.append( self.xnutofuudParserInstruction())
     }
     
     public func getMatchingParseInstruction(htmlSource:  String) -> HTMLParserInstruction? {
@@ -57,8 +55,24 @@ public class HTMLParserInstructionRepository
         return instructions
     }
     
+    private func xnutofuudParserInstruction() -> HTMLParserInstruction {
+        let instructions = HTMLParserInstruction()
+        instructions.name = "xnutofuud"
+        instructions.identifierInstruction = xnutofuudIdentifierInstruction
+        instructions.titleParseInstruction = genericTitleParser
+        instructions.linksParseInstruction = xnutofuudLinksParser
+        return instructions
+    }
+    
     // MARK: Identifier
     
+    private func xnutofuudIdentifierInstruction(htmlSource : String) -> Bool {
+        if htmlSource.caseInsensitiveContains(searchString: "xnutofuud.com") {
+            return true
+        }
+        return false
+    }
+        
     private func hqBabesIdentifierInstruction(htmlSource : String) -> Bool {
         if htmlSource.caseInsensitiveContains(searchString: "www.hqbabes.com") {
             return true
@@ -88,6 +102,7 @@ public class HTMLParserInstructionRepository
         title = title.substringAfter(searchString: ">")
         title = title.fixEncoding()
         title = title.removeInvalidFilenameCharacters()
+        title = title.stringByDecodingHTMLEntities
         return title
     }
     
@@ -207,4 +222,42 @@ public class HTMLParserInstructionRepository
         }
         return linksArray
     }
+    
+    
+    private func xnutofuudLinksParser (htmlSource : String) -> [String]
+    {
+        let startString = "src=\"http://xnutofuud.com/wp-content/uploads"
+        let endString  = ".webp"
+        let removeCharactersFromStart = 12
+        var source = htmlSource
+        var linksArray = [String]()
+        var singleLink : String = ""
+        let imageUrlAdditionalPrefix = "http://"
+        
+        while source.caseInsensitiveContains(searchString: startString)  {
+            
+            singleLink = source.substringAfterIncluding(searchString: startString, options: NSString.CompareOptions.caseInsensitive)
+            singleLink = singleLink.substringBeforeIncluding(searchString: endString, options: NSString.CompareOptions.caseInsensitive)
+            
+            // Remove a given number of characters from the start
+            // This can be neccessary if there is no other way to identify an URL
+            if removeCharactersFromStart > 0 {
+                singleLink = singleLink.substringRightAfter(characterCount: removeCharactersFromStart)
+            }
+            
+            if singleLink != "" {
+                let  modifiedLink = "\(imageUrlAdditionalPrefix)\(singleLink)"
+                // No duplicates
+                if linksArray.contains(modifiedLink) == false {
+                    linksArray.append(modifiedLink)
+                }
+                // remove found ImageLink from HTML source code
+                source = source.substringAfter(searchString: singleLink)
+                singleLink = ""
+            }
+        }
+        return linksArray
+    }
+    
+    
 }

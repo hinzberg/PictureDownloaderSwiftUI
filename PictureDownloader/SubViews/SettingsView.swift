@@ -15,6 +15,7 @@ struct SettingsView: View {
     var body: some View {
         
         VStack {
+
             HStack{
                 Text("Save images at")
                 Spacer()

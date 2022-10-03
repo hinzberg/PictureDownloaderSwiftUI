@@ -1,9 +1,6 @@
-//
 //  HTMLParserResults.swift
 //  Picture Downloader
-//
 //  Created by Holger Hinzberg on 31.07.22.
-//
 
 import Foundation
 

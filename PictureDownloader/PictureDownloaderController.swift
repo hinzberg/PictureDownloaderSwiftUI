@@ -6,13 +6,14 @@ import SwiftUI
 
 public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtocol, FileDownloaderDelegateProtocol, ObservableObject
 {
-    var downloadItemRepository = HHDownloadItemRepository.shared;
+    var downloadItemRepository = FileDownloadItemRepository.shared;
     var lastPasteboardUrl : String = ""
     var urlGetter = PasteboardUrlGetter()
     var galleryAnalyser = WebsiteGalleryAnalyser()
     var fileDownloader = FileDownloader()
     var timer : Timer?
     @Published var activeItemName = ""
+    
     
     @AppStorage("playSoundAtFinish") var playSoundAtFinish = false
     @AppStorage("showNotifications") var showNotifications = false
@@ -29,7 +30,7 @@ public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtoco
         // Assign folder to save pictures
        self.checkOrCreateSaveFolder()
     }
-    
+        
     private func checkOrCreateSaveFolder()
     {
         if self.downloadFolder.isEmpty
@@ -58,6 +59,7 @@ public class PictureDownloaderController : WebsiteGalleryAnalyserDelegateProtoco
         // currentPasteboardUrl = "https://www.erocurves.com/kate-england-puffy-nipples/"
         // currentPasteboardUrl = "https://www.pornpics.de/galleries/teenage-interviewer-blake-blossom-gives-a-boobjob-to-a-potential-employee-99737934/"
         // currentPasteboardUrl = "https://drommgirls.com/evelyn-beauty-on-top/"
+        // currentPasteboardUrl = "http://xnutofuud.com/?p=519"
         
         // Get the current Url from the pasteboard
         if currentPasteboardUrl == ""  {

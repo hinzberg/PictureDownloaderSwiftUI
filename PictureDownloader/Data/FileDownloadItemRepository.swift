@@ -5,8 +5,10 @@
 import SwiftUI
 import Hinzberg_Foundation
 
-public class HHDownloadItemRepository: ObservableObject, RepositoryProtocol {
+public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol {
     
+    public typealias RepositoryType = FileDownloadItem
+        
     public func getCount() -> Int {
         return itemsToDownload.count
     }
@@ -48,6 +50,11 @@ public class HHDownloadItemRepository: ObservableObject, RepositoryProtocol {
         return itemsToDownload
     }
     
+    public func getSelected() -> [FileDownloadItem] {
+        let items = itemsToDownload.filter { $0.selected == true }
+        return items
+    }
+    
     public func get(id: UUID) -> FileDownloadItem? {
         return nil
     }
@@ -58,10 +65,8 @@ public class HHDownloadItemRepository: ObservableObject, RepositoryProtocol {
         itemsToDownload.removeAll()
         self.updateItemsCountText()
     }
-        
-    public typealias RepositoryType = FileDownloadItem
     
-    static let shared = HHDownloadItemRepository()
+    static let shared = FileDownloadItemRepository()
     
     private init() {
         updateItemsCountText()

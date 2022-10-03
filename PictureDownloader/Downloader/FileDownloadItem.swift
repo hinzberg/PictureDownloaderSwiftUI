@@ -4,20 +4,13 @@
 
 import Foundation
 
-public class FileDownloadItem: NSObject, Identifiable
+public class FileDownloadItem: BaseRepositoryItem
 {
-    public override init() {        
-    }
-    
-    public var id = UUID()
     public var isActiveForDownload:Bool = true
-    
     public var webSourceUrl:String = ""
     public var localTargetFolder:String = ""
-    public var localTargetFilename:String = ""
-    public var localTargetFileExtension:String = ""
-        
-    //  Path and Filename of the local saved file
+    @Published var localTargetFilename:String = ""
+    @Published var localTargetFileExtension:String = ""
     
     public var localTargetFullPathWithFile : String {
         return "\(self.localTargetFolder)/\(self.localTargetFilename)\(self.localTargetFileExtension)"

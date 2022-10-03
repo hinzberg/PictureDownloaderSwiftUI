@@ -24,6 +24,13 @@ class WebsiteGalleryAnalyser
     }
     
     private func validateAndPrepareDownload(urlString:String) {
+        
+        // If it does nit start with http just ignore it
+        if urlString.lowercased().starts(with: "http") == false {
+            LogItemRepository.shared.addItem(item: LogItem(message: "\"\(urlString)\" was ignored. It may not be an URL", priority: .Information))
+            return
+        }
+                
         if let delegate = self.delegate {
             LogItemRepository.shared.addItem(item: LogItem(message: "Analysing URL \(urlString)"))
             delegate.galleryAnalyserStatusMessage(message: urlString)
@@ -48,6 +55,7 @@ class WebsiteGalleryAnalyser
             alert.messageText = "Invalid Data"
             alert.informativeText = "\(urlString) \ncould not be validated."
             alert.runModal()
+            
             LogItemRepository.shared.addItem(item: LogItem(message: "\(urlString) could not be validated.", priority: .Exclamation))
         }
     }
