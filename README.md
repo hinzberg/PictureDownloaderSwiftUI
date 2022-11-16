@@ -1,5 +1,8 @@
 #  Picture Downloader
 
+**2022-11-16**
+- New Sidebar with NavigationSplitView
+
 **2022-10-03**
 - Clipboard text not start with http are ignored for analyses
 - Background color for selected items in download que

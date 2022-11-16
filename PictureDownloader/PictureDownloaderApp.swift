@@ -15,22 +15,13 @@ struct PictureDownloaderApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                SidebarView()
-                DownloadQueView()
-            }
+            NavigationManagerView()
             .sheet(isPresented: $showingRenameSheet ) {
                 showTextInputRenameSheet()
             }
-            
+          
             .navigationTitle(getWindowTitle())
             .toolbar (id: "main") {
-                ToolbarItem(id: "files", placement: .navigation) {
-                    Button(action: self.ToggleSidebar) {
-                        Label("Sidebar", systemImage: "sidebar.left")
-                    }
-                }
-                
                 ToolbarItem(id: "rename") {
                     Button(action: self.renameAction) {
                         Label("Rename", systemImage: "text.quote")
@@ -59,10 +50,6 @@ struct PictureDownloaderApp: App {
     func getWindowTitle() -> String
     {
         return "Picture Downloader - Version \(Bundle.main.releaseVersionNumber)"
-    }
-    
-    func ToggleSidebar() {
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
     
     func downloadAction () {
