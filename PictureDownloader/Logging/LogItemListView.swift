@@ -4,16 +4,15 @@
 
 import SwiftUI
 
-struct LogItemListView: View {
-    
+struct LogItemListView: View
+{
     @ObservedObject var logsRepo = LogItemRepository.shared
-    
     var body: some View {
         VStack {
             List{
-            ForEach (self.logsRepo.logItems, id: \.id) { item in
-                LogItemCell(logItem: item)
-            }
+                ForEach (self.logsRepo.logItems, id: \.id) { item in
+                    LogItemCell(logItem: item)
+                }
             }
             Spacer()
         }

@@ -9,13 +9,10 @@ import Hinzberg_SwiftUI
 struct PictureDownloaderApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @ObservedObject var controller = PictureDownloaderController()
-    
-    
-    
     @ObservedObject var downloadItemRepository = FileDownloadItemRepository.shared;
-    
-    
+   
     @State var showingRenameSheet = false
     
     var body: some Scene {
@@ -29,7 +26,7 @@ struct PictureDownloaderApp: App {
             .toolbar (id: "main") {
                 ToolbarItem(id: "rename") {
                     Button(action: self.renameAction) {
-                        Label("Rename", systemImage: "text.quote")
+                        Label("Batch Rename", systemImage: "text.quote")
                     }
                 }
                 

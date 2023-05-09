@@ -16,10 +16,10 @@
 		3F40CAD3258018BF009834FB /* LogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40CAD2258018BF009834FB /* LogItemCell.swift */; };
 		3F40CAD625801A24009834FB /* LogItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40CAD525801A24009834FB /* LogItemListView.swift */; };
 		3F692EF42640552D00330900 /* Programflow in Resources */ = {isa = PBXBuildFile; fileRef = 3F692EF32640552D00330900 /* Programflow */; };
-		3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F696F4E26069158000AD9A8 /* DownloadView.swift */; };
 		3F6A9BC129257AE000C7CC76 /* NavigationSideBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A9BC029257AE000C7CC76 /* NavigationSideBarItem.swift */; };
 		3F6A9BC229257D1500C7CC76 /* NavigationManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A9BBF29257AB000C7CC76 /* NavigationManagerView.swift */; };
 		3F6FA6B6274D8FC4008FF87C /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */; };
+		3F7747912A0ABB6F00244824 /* FileDownloadItemRowViewActionDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7747902A0ABB6F00244824 /* FileDownloadItemRowViewActionDelegateProtocol.swift */; };
 		3F79D5EA25854FED00359BA0 /* NSSound + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */; };
 		3F7E036D25641F59008D948C /* PictureDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */; };
 		3F7E037125641F59008D948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7E037025641F59008D948C /* Assets.xcassets */; };
@@ -60,11 +60,11 @@
 		3F40CAD2258018BF009834FB /* LogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemCell.swift; sourceTree = "<group>"; };
 		3F40CAD525801A24009834FB /* LogItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemListView.swift; sourceTree = "<group>"; };
 		3F692EF32640552D00330900 /* Programflow */ = {isa = PBXFileReference; lastKnownFileType = text; path = Programflow; sourceTree = "<group>"; };
-		3F696F4E26069158000AD9A8 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		3F6A9BBF29257AB000C7CC76 /* NavigationManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManagerView.swift; sourceTree = "<group>"; };
 		3F6A9BC029257AE000C7CC76 /* NavigationSideBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSideBarItem.swift; sourceTree = "<group>"; };
 		3F6FA6B4274D8C5C008FF87C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		3F7747902A0ABB6F00244824 /* FileDownloadItemRowViewActionDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadItemRowViewActionDelegateProtocol.swift; sourceTree = "<group>"; };
 		3F79D5E925854FED00359BA0 /* NSSound + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSound + Extension.swift"; sourceTree = "<group>"; };
 		3F7E036925641F59008D948C /* Picture Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Downloader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDownloaderApp.swift; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				3F7E038C25641F8F008D948C /* FileDownloadItemRowView.swift */,
+				3F7747902A0ABB6F00244824 /* FileDownloadItemRowViewActionDelegateProtocol.swift */,
 				3F2F42BE256685C600E4DC1B /* DownloadQueView.swift */,
 				3F2F42BB2566857400E4DC1B /* SettingsView.swift */,
-				3F696F4E26069158000AD9A8 /* DownloadView.swift */,
 				3F6FA6B5274D8FC4008FF87C /* GalleryView.swift */,
 				3FF5C376274ED42B001BC49E /* GalleryPictureView.swift */,
 			);
@@ -156,10 +156,10 @@
 			children = (
 				3F6A9BBF29257AB000C7CC76 /* NavigationManagerView.swift */,
 				3F6A9BC029257AE000C7CC76 /* NavigationSideBarItem.swift */,
-				3FDA268C28970B2E001DC1DA /* HTML Parsing */,
 				3F7E036C25641F59008D948C /* PictureDownloaderApp.swift */,
 				3F2F42C125669EC900E4DC1B /* PictureDownloaderController.swift */,
 				3F7E03A4256427FE008D948C /* AppDelegate.swift */,
+				3FDA268C28970B2E001DC1DA /* HTML Parsing */,
 				3F40CACB25801734009834FB /* Logging */,
 				3F8C8BF9257051A9002E01F2 /* WebsiteAnalyser */,
 				3F8C8BF82570517A002E01F2 /* Downloader */,
@@ -338,7 +338,6 @@
 				3F7E039825641F8F008D948C /* WebsiteGalleryAnalyserDelegateProtocol.swift in Sources */,
 				3F7E039525641F8F008D948C /* FileDownloadItemRepository.swift in Sources */,
 				3F7E039E25641F99008D948C /* WebsiteRepositoryItem.swift in Sources */,
-				3F696F4F26069158000AD9A8 /* DownloadView.swift in Sources */,
 				3F7E039425641F8F008D948C /* FileDownloaderDelegateProtocol.swift in Sources */,
 				3F077C5225ED82CD0046ADC4 /* HtmlDownloader.swift in Sources */,
 				3F2F42C225669EC900E4DC1B /* PictureDownloaderController.swift in Sources */,
@@ -348,6 +347,7 @@
 				3FDA268E28970B67001DC1DA /* HTMLParser.swift in Sources */,
 				3FD5335B257040F0002EE1E4 /* HHFileHelper.swift in Sources */,
 				3FDA269628971763001DC1DA /* HTMLParserInstruction.swift in Sources */,
+				3F7747912A0ABB6F00244824 /* FileDownloadItemRowViewActionDelegateProtocol.swift in Sources */,
 				3F40CAD0258017AA009834FB /* LogItemRepository.swift in Sources */,
 				3F7E03A5256427FE008D948C /* AppDelegate.swift in Sources */,
 				3F7E039125641F8F008D948C /* WebsiteGalleryAnalyser.swift in Sources */,

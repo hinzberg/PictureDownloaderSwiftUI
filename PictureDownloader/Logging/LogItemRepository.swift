@@ -6,12 +6,11 @@ import Foundation
 
 public class LogItemRepository: ObservableObject {
     
-    static let shared = LogItemRepository()
-    
-    private init() {
-    }
-    
     @Published var logItems = [LogItem]()
+   
+    // Make this a singleton
+    static let shared = LogItemRepository()
+    private init() {}
     
     public func addItem(item : LogItem)
     {

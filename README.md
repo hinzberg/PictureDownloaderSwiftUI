@@ -1,5 +1,10 @@
 #  Picture Downloader
 
+**2023-05-09**
+- New Accent Color
+- Rename and Delete per Item
+- Fixed Sound for "Play sound when new pictures have been added"
+
 **2023-05-08**
 - New Source added to Website Repository
 - Fix: FileDownloadItem no longer inhertits from RepositoryBaseItem

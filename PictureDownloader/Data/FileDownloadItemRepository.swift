@@ -10,6 +10,9 @@ public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol
     private var sequentialNumber : Int = 1
     @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
     
+    @Published var selectedViaDelegate : FileDownloadItem?
+    @Published var activeItemName = ""
+    
     var itemsDownloaded = [FileDownloadItem]() {
         willSet { /*self.objectWillChange.send()*/}
     }
@@ -42,8 +45,10 @@ public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol
             self.createUnqiueFilename(checkItem: item)
         }
         
-        itemsToDownload.append(item)
-        self.updateItemsCountText()
+        DispatchQueue.main.async {
+            self.itemsToDownload.append(item)
+            self.updateItemsCountText()
+        }
     }
     
     public func addMany(items: [FileDownloadItem])

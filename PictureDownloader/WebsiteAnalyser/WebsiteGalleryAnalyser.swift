@@ -5,6 +5,7 @@
 
 import SwiftUI
 import UserNotifications
+import AudioToolbox
 
 class WebsiteGalleryAnalyser
 {
@@ -87,8 +88,14 @@ class WebsiteGalleryAnalyser
             delegate.galleryAnalysingCompleted(downloadItemsArray: self.downloadItemsArray) }
     }
     
-    private func createDownloadItems( result : HTMLParserResult) {
+    private func createDownloadItems( result : HTMLParserResult)
+    {
         LogItemRepository.shared.addItem(item: LogItem(message: "\(result.Links.count) image links found"))
+        
+        if playSoundAtAdd {
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_UserPreferredAlert))
+        }
+        
         for  imageLink in result.Links
         {
             let number = self.downloadItemsArray.count + 1;
@@ -100,6 +107,7 @@ class WebsiteGalleryAnalyser
             downloadItem.localTargetFileExtension = ".jpg"
             downloadItem.localTargetFolder = self.downloadFolder
             downloadItemsArray.append(downloadItem)
+            LogItemRepository.shared.addItem(item: LogItem(message: "Image link added \(imageLink)"))
         }
     }
     
