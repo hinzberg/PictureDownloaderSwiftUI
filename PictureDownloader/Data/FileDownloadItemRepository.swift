@@ -5,7 +5,26 @@
 import SwiftUI
 import Hinzberg_Foundation
 
-public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol {
+public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol
+{
+    private var sequentialNumber : Int = 1
+    @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
+    
+    var itemsDownloaded = [FileDownloadItem]() {
+        willSet { /*self.objectWillChange.send()*/}
+    }
+    
+    var itemsDownloadedCountText = "" {
+        willSet { self.objectWillChange.send()}
+    }
+        
+    var itemsToDownload = [FileDownloadItem]() {
+        willSet { self.objectWillChange.send()}
+    }
+        
+    var itemsToDownloadCountText = "" {
+        willSet { self.objectWillChange.send()}
+    }
     
     public typealias RepositoryType = FileDownloadItem
         
@@ -71,14 +90,6 @@ public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol {
     private init() {
         updateItemsCountText()
     }
-
-    private var sequentialNumber : Int = 1
-   @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
-   
-    @Published var itemsDownloaded = [FileDownloadItem]()
-    @Published var itemsDownloadedCountText = ""
-    @Published var itemsToDownload = [FileDownloadItem]()
-    @Published var itemsToDownloadCountText = ""
         
     func removeAllItems() {
         itemsDownloaded.removeAll()

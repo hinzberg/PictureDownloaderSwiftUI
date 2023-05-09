@@ -1,5 +1,9 @@
 #  Picture Downloader
 
+**2023-05-08**
+- New Source added to Website Repository
+- Fix: FileDownloadItem no longer inhertits from RepositoryBaseItem
+
 **2022-11-16**
 - New Sidebar with NavigationSplitView
 

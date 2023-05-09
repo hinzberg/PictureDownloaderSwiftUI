@@ -94,6 +94,7 @@ class WebsiteGalleryAnalyser
             let number = self.downloadItemsArray.count + 1;
             let downloadItem = FileDownloadItem()
             downloadItem.isActiveForDownload = true
+            downloadItem.selected = false
             downloadItem.webSourceUrl = imageLink
             downloadItem.localTargetFilename = "\(result.Title) \(number)"
             downloadItem.localTargetFileExtension = ".jpg"

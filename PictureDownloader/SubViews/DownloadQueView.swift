@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-
 struct DownloadQueView: View {
     
     @EnvironmentObject var controller : PictureDownloaderController
@@ -14,8 +13,8 @@ struct DownloadQueView: View {
         VStack {
             VStack {
                 List {
-                    ForEach (downloadItemRepository.itemsToDownload, id: \.id) { item in
-                        FileDownloadItemRowView(item: item)
+                    ForEach (controller.downloadItemRepository.itemsToDownload, id: \.id) { item in
+                        FileDownloadItemRowView(fileDownloadItem: item)
                     }.listRowInsets(EdgeInsets())
                 }.listStyle(PlainListStyle())
                 

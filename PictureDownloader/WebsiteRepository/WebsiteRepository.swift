@@ -97,6 +97,18 @@ class WebsiteRepository
         ident.addCharactersAtEnd = 4
         item.websideParseInformation.append(ident)
         websites.append(item)
+                
+        item = WebsiteRepositoryItem()
+        item.websiteIdentification = "babesource.com";
+        ident = WebsiteParseInformation()
+        ident.startStrings.append("href=\"https://media.babesource.com/galleries")
+        ident.endStrings.append(".jpg")
+        ident.filetypeString = ".jpg"
+        ident.removeCharactersFromStart = 6
+        ident.addCharactersAtEnd = 4
+        item.websideParseInformation.append(ident)
+        websites.append(item)
+                
         
         item = WebsiteRepositoryItem()
         item.websiteIdentification = "hentai-cosplays.com";

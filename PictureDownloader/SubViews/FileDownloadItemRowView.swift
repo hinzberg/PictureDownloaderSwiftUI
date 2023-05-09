@@ -6,11 +6,11 @@ import SwiftUI
 
 struct FileDownloadItemRowView: View {
     
-    @ObservedObject var item:FileDownloadItem
+    @ObservedObject var fileDownloadItem:FileDownloadItem
     
     var body: some View {
         VStack{
-            Text("\(item.localTargetFilename)\(item.localTargetFileExtension)")
+            Text("\(fileDownloadItem.localTargetFilename)\(fileDownloadItem.localTargetFileExtension)")
                 .font(.title2).foregroundColor(Color.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -18,7 +18,7 @@ struct FileDownloadItemRowView: View {
                 Text("From: ")
                     .foregroundColor(Color.secondary)
                     .frame(width: 40, alignment: .leading)
-                Text(item.webSourceUrl)
+                Text(fileDownloadItem.webSourceUrl)
                     .font(.body)
                     .foregroundColor(Color.secondary)
             }.frame(maxWidth: .infinity, alignment: .leading)
@@ -28,21 +28,21 @@ struct FileDownloadItemRowView: View {
                     .font(.body)
                     .foregroundColor(Color.secondary)
                     .frame(width: 40, alignment: .leading)
-                Text(item.localTargetFullPathWithFile)
+                Text(fileDownloadItem.localTargetFullPathWithFile)
                     .font(.body)
                     .foregroundColor(Color.secondary)
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(10)
-        .background(item.selected ? Color.accentColor.opacity(0.1) : Color(NSColor.controlBackgroundColor) )
+        .background(fileDownloadItem.selected ? Color.accentColor.opacity(0.1) : Color(NSColor.controlBackgroundColor) )
         .onTapGesture {
-            item.selected.toggle()
+            fileDownloadItem.selected.toggle()
         }
     }
 }
 
 struct HHDownloadItemRowView_Previews: PreviewProvider {
     static var previews: some View {
-        FileDownloadItemRowView(item: FileDownloadItem.Example())
+        FileDownloadItemRowView(fileDownloadItem: FileDownloadItem.Example())
     }
 }

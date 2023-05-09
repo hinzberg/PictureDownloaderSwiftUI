@@ -10,7 +10,12 @@ struct PictureDownloaderApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var controller = PictureDownloaderController()
+    
+    
+    
     @ObservedObject var downloadItemRepository = FileDownloadItemRepository.shared;
+    
+    
     @State var showingRenameSheet = false
     
     var body: some Scene {
