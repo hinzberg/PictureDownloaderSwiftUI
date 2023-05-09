@@ -7,30 +7,18 @@ import Hinzberg_Foundation
 
 public class FileDownloadItemRepository: ObservableObject, RepositoryProtocol
 {
-    private var sequentialNumber : Int = 1
     @AppStorage("appendSequentialNumber") var appendSequentialNumber = true
-    
     @Published var selectedViaDelegate : FileDownloadItem?
     @Published var activeItemName = ""
-    
-    var itemsDownloaded = [FileDownloadItem]() {
-        willSet { /*self.objectWillChange.send()*/}
-    }
-    
-    var itemsDownloadedCountText = "" {
-        willSet { self.objectWillChange.send()}
-    }
-        
-    var itemsToDownload = [FileDownloadItem]() {
-        willSet { self.objectWillChange.send()}
-    }
-        
-    var itemsToDownloadCountText = "" {
-        willSet { self.objectWillChange.send()}
-    }
+    @Published  var itemsDownloaded = [FileDownloadItem]()
+    @Published var itemsDownloadedCountText = ""
+    @Published var itemsToDownload = [FileDownloadItem]()
+    @Published var itemsToDownloadCountText = ""
     
     public typealias RepositoryType = FileDownloadItem
-        
+   
+    private var sequentialNumber : Int = 1
+       
     public func getCount() -> Int {
         return itemsToDownload.count
     }
